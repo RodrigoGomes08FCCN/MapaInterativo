@@ -1,0 +1,439 @@
+/* =================================================================
+   Mapa Interativo — folha de estilos principal
+   Direção visual: "planta técnica" (blueprint) — a app parece uma
+   prancheta de arquitetura: fundo claro de papel milimétrico fora
+   do desenho, e a planta em si em tom de cianótipo (azul profundo)
+   com traços finos, como um desenho técnico real.
+   ================================================================= */
+
+:root {
+  /* --- cor --- */
+  --paper: #eef1f4;
+  --paper-line: #dde3e9;
+  --ink: #142433;
+  --ink-soft: #4d6072;
+  --blueprint: #0e2a47;
+  --blueprint-deep: #081a2e;
+  --line: #bcd6ea;
+  --line-strong: #eaf4fb;
+  --accent: #e8a33d;
+  --accent-ink: #4a2f08;
+
+  --room-gabinete: #6fb1e0;
+  --room-circulacao: #8fa6b8;
+  --room-apoio: #d7a86e;
+  --room-reuniao: #7dc9a8;
+  --room-aula: #c98fd0;
+
+  /* --- tipografia --- */
+  --font-display: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+body {
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: inherit; }
+
+/* -------------------------------------------------------------- */
+/* Header                                                          */
+/* -------------------------------------------------------------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 18px 32px;
+  background: var(--blueprint);
+  color: var(--line-strong);
+  border-bottom: 3px solid var(--accent);
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-header__mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--line-strong);
+}
+
+.site-header__title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  font-family: var(--font-display);
+}
+
+.site-header__title strong {
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+}
+
+.site-header__title span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--line);
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-mono);
+}
+
+.field__label {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--line);
+}
+
+.field__control {
+  background: var(--blueprint-deep);
+  color: var(--line-strong);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.site-header__link {
+  align-self: center;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border: 1px solid var(--line);
+  padding: 7px 12px;
+  border-radius: 4px;
+  color: var(--line-strong);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-header__link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* -------------------------------------------------------------- */
+/* Layout principal                                                 */
+/* -------------------------------------------------------------- */
+.app {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 0;
+  align-items: stretch;
+}
+
+.map-panel {
+  position: relative;
+  padding: 28px 32px 12px;
+  min-width: 0;
+}
+
+.map-panel__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.map-panel__heading h1 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.map-panel__hint {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+}
+
+.map-frame {
+  background: var(--blueprint);
+  border-radius: 10px;
+  box-shadow: 0 18px 40px -22px rgba(8, 26, 46, 0.55);
+  padding: 18px;
+  border: 1px solid #0a2036;
+}
+
+.map-frame svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- salas dentro do SVG --- */
+.room {
+  cursor: pointer;
+  fill-opacity: 0.16;
+  stroke: none;
+  transition: fill-opacity 0.15s ease;
+}
+
+.room:hover { fill-opacity: 0.38; }
+
+.room.is-selected {
+  fill-opacity: 0.5;
+  stroke: var(--accent);
+  stroke-width: 2.4;
+  stroke-dasharray: 6 4;
+  animation: march 12s linear infinite;
+}
+
+@keyframes march {
+  to { stroke-dashoffset: -240; }
+}
+
+.room--gabinete   { fill: var(--room-gabinete); }
+.room--circulacao { fill: var(--room-circulacao); }
+.room--apoio      { fill: var(--room-apoio); }
+.room--reuniao    { fill: var(--room-reuniao); }
+.room--aula       { fill: var(--room-aula); }
+
+.walls {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.deco {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+
+.deco-fill { fill: var(--blueprint-deep); }
+
+.room-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  fill: var(--line-strong);
+  pointer-events: none;
+  opacity: 0.85;
+  text-anchor: middle;
+}
+
+/* legenda */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.legend__item { display: flex; align-items: center; gap: 6px; }
+
+.legend__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.legend__swatch--gabinete   { background: var(--room-gabinete); }
+.legend__swatch--circulacao { background: var(--room-circulacao); }
+.legend__swatch--apoio      { background: var(--room-apoio); }
+.legend__swatch--reuniao    { background: var(--room-reuniao); }
+.legend__swatch--aula       { background: var(--room-aula); }
+
+/* -------------------------------------------------------------- */
+/* Painel de detalhes                                               */
+/* -------------------------------------------------------------- */
+.detail-panel {
+  border-left: 1px solid var(--paper-line);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #fff;
+}
+
+.detail-panel__empty {
+  margin: auto 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.detail-panel__empty svg {
+  display: block;
+  margin: 0 auto 12px;
+  opacity: 0.5;
+}
+
+.detail-card { display: none; flex-direction: column; gap: 16px; }
+.detail-card.is-active { display: flex; }
+
+.detail-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  color: #fff;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-card__image span {
+  position: relative;
+  z-index: 1;
+}
+
+.detail-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255,255,255,0.16) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.detail-card__id {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.detail-card__name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 2px 0 0;
+}
+
+.detail-card__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.detail-card__stat {
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+
+.detail-card__stat dt {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin: 0 0 4px;
+}
+
+.detail-card__stat dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.detail-card__close {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--paper-line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+
+.detail-card__close:hover { border-color: var(--ink-soft); color: var(--ink); }
+
+/* -------------------------------------------------------------- */
+/* Footer                                                           */
+/* -------------------------------------------------------------- */
+.site-footer {
+  padding: 14px 32px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--paper-line);
+}
+
+.site-footer__meta { color: var(--ink); }
+
+/* -------------------------------------------------------------- */
+/* Responsivo                                                       */
+/* -------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+
+  .detail-panel {
+    border-left: none;
+    border-top: 1px solid var(--paper-line);
+  }
+
+  .site-header__nav { width: 100%; justify-content: space-between; }
+}
+
+@media (max-width: 560px) {
+  .site-header { padding: 14px 18px; }
+  .map-panel { padding: 20px 16px 8px; }
+  .detail-panel { padding: 20px 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room.is-selected { animation: none; }
+}

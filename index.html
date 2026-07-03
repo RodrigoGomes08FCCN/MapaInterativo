@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa Interativo — Edifício B · Piso 0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+<div id="header-slot"></div>
+
+<main class="app">
+
+  <section class="map-panel">
+    <div class="map-panel__heading">
+      <h1>Edifício B — Piso 0</h1>
+      <span class="map-panel__hint">Clica numa divisória para veres os detalhes →</span>
+    </div>
+
+    <div class="map-frame">
+      <svg viewBox="120 60 1100 620" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Planta real do Edifício B, Piso 0">
+
+        <!-- ============ SALAS (áreas clicáveis) ============ -->
+        <g class="floor" id="floor-B-0">
+
+          <rect class="room room--reuniao" data-room="reuniao_pequena" x="148" y="278" width="110" height="102" tabindex="0" role="button" aria-label="Sala de Reuniões 1"/>
+          <rect class="room room--gabinete" data-room="gab_a" x="258" y="278" width="102" height="102" tabindex="0" role="button" aria-label="Gabinete A"/>
+          <rect class="room room--gabinete" data-room="gab_b" x="360" y="278" width="100" height="102" tabindex="0" role="button" aria-label="Gabinete B"/>
+          <rect class="room room--circulacao" data-room="wc_esquerda" x="148" y="380" width="110" height="60" tabindex="0" role="button" aria-label="Instalações Sanitárias Ala Esquerda"/>
+          <rect class="room room--circulacao" data-room="escadas_esquerda" x="148" y="440" width="75" height="119" tabindex="0" role="button" aria-label="Escadas Ala Esquerda"/>
+
+          <rect class="room room--aula" data-room="open_space_esquerdo" x="460" y="278" width="160" height="102" tabindex="0" role="button" aria-label="Open Space Esquerdo"/>
+          <rect class="room room--aula" data-room="open_space_esquerdo" x="258" y="380" width="202" height="155" tabindex="0" role="button" aria-label="Open Space Esquerdo"/>
+          <rect class="room room--aula" data-room="open_space_esquerdo" x="558" y="380" width="62" height="155" tabindex="0" role="button" aria-label="Open Space Esquerdo"/>
+
+          <rect class="room room--reuniao" data-room="sala_formacao_esquerda" x="460" y="380" width="98" height="155" tabindex="0" role="button" aria-label="Sala de Formação 1"/>
+
+          <rect class="room room--gabinete" data-room="cubiculo_1" x="222" y="535" width="59" height="23" tabindex="0" role="button" aria-label="Gabinete C1"/>
+          <rect class="room room--gabinete" data-room="cubiculo_2" x="281" y="535" width="60" height="23" tabindex="0" role="button" aria-label="Gabinete C2"/>
+          <rect class="room room--gabinete" data-room="cubiculo_3" x="341" y="535" width="60" height="23" tabindex="0" role="button" aria-label="Gabinete C3"/>
+          <rect class="room room--gabinete" data-room="cubiculo_4" x="401" y="535" width="59" height="23" tabindex="0" role="button" aria-label="Gabinete C4"/>
+
+          <rect class="room room--circulacao" data-room="corredor_central" x="605" y="320" width="65" height="239" tabindex="0" role="button" aria-label="Corredor"/>
+          <rect class="room room--reuniao" data-room="sala_c2" x="670" y="320" width="141" height="90" tabindex="0" role="button" aria-label="Sala Polivalente 1"/>
+          <rect class="room room--apoio" data-room="area_tecnica" x="670" y="410" width="141" height="130" tabindex="0" role="button" aria-label="Área Técnica"/>
+          <rect class="room room--reuniao" data-room="formacao_comercial" x="811" y="320" width="49" height="220" tabindex="0" role="button" aria-label="Formação Comercial"/>
+          <rect class="room room--circulacao" data-room="wc_central" x="867" y="320" width="39" height="74" tabindex="0" role="button" aria-label="Instalações Sanitárias Zona Central"/>
+          <rect class="room room--circulacao" data-room="escadas_central" x="867" y="394" width="39" height="165" tabindex="0" role="button" aria-label="Escadas Zona Central"/>
+
+          <rect class="room room--aula" data-room="terraco" x="600" y="90" width="300" height="185" tabindex="0" role="button" aria-label="Terraço / Zona de Convívio Exterior"/>
+
+          <rect class="room room--circulacao" data-room="wc_direita" x="900" y="278" width="69" height="32" tabindex="0" role="button" aria-label="Instalações Sanitárias Ala Direita"/>
+          <rect class="room room--reuniao" data-room="sala_reuniao_direita" x="900" y="310" width="69" height="84" tabindex="0" role="button" aria-label="Sala de Reuniões 2"/>
+          <rect class="room room--apoio" data-room="copa_direita" x="900" y="394" width="69" height="66" tabindex="0" role="button" aria-label="Copa"/>
+          <rect class="room room--circulacao" data-room="escadas_direita" x="900" y="460" width="40" height="99" tabindex="0" role="button" aria-label="Escadas Ala Direita"/>
+
+          <rect class="room room--aula" data-room="open_space_direito" x="969" y="278" width="181" height="30" tabindex="0" role="button" aria-label="Open Space Direito"/>
+          <rect class="room room--aula" data-room="open_space_direito" x="969" y="308" width="181" height="92" tabindex="0" role="button" aria-label="Open Space Direito"/>
+          <rect class="room room--reuniao" data-room="sala_formacao_direita" x="969" y="400" width="181" height="159" tabindex="0" role="button" aria-label="Sala de Formação 2"/>
+
+          <rect class="room room--apoio" data-room="parqueamento" x="232" y="558" width="388" height="90" tabindex="0" role="button" aria-label="Estacionamento"/>
+          <rect class="room room--circulacao" data-room="entrada_lateral" x="840" y="558" width="60" height="90" tabindex="0" role="button" aria-label="Entrada Lateral"/>
+
+        </g>
+
+        <!-- ============ DECORAÇÃO (mobiliário estilizado, não clicável) ============ -->
+        <g class="deco" aria-hidden="true">
+          <circle cx="203" cy="329" r="30"/>
+          <circle cx="935" cy="352" r="18"/>
+          <circle cx="935" cy="427" r="18"/>
+
+          <!-- grelhas de mesas das salas de formação -->
+          <g>
+            <circle cx="478" cy="405" r="3"/><circle cx="498" cy="405" r="3"/><circle cx="518" cy="405" r="3"/>
+            <circle cx="478" cy="425" r="3"/><circle cx="498" cy="425" r="3"/><circle cx="518" cy="425" r="3"/>
+            <circle cx="478" cy="445" r="3"/><circle cx="498" cy="445" r="3"/><circle cx="518" cy="445" r="3"/>
+            <circle cx="478" cy="465" r="3"/><circle cx="498" cy="465" r="3"/><circle cx="518" cy="465" r="3"/>
+          </g>
+          <g>
+            <circle cx="1000" cy="425" r="3"/><circle cx="1020" cy="425" r="3"/><circle cx="1040" cy="425" r="3"/><circle cx="1060" cy="425" r="3"/>
+            <circle cx="1000" cy="445" r="3"/><circle cx="1020" cy="445" r="3"/><circle cx="1040" cy="445" r="3"/><circle cx="1060" cy="445" r="3"/>
+            <circle cx="1000" cy="465" r="3"/><circle cx="1020" cy="465" r="3"/><circle cx="1040" cy="465" r="3"/><circle cx="1060" cy="465" r="3"/>
+            <circle cx="1000" cy="485" r="3"/><circle cx="1020" cy="485" r="3"/><circle cx="1040" cy="485" r="3"/><circle cx="1060" cy="485" r="3"/>
+          </g>
+
+          <!-- postos de trabalho (open space) -->
+          <g>
+            <rect x="270" y="400" width="18" height="14"/><rect x="270" y="430" width="18" height="14"/><rect x="270" y="460" width="18" height="14"/>
+            <rect x="330" y="400" width="18" height="14"/><rect x="330" y="430" width="18" height="14"/><rect x="330" y="460" width="18" height="14"/>
+            <rect x="390" y="400" width="18" height="14"/><rect x="390" y="430" width="18" height="14"/><rect x="390" y="460" width="18" height="14"/>
+          </g>
+          <g>
+            <rect x="1000" y="330" width="18" height="14"/><rect x="1040" y="330" width="18" height="14"/><rect x="1080" y="330" width="18" height="14"/>
+            <rect x="1000" y="360" width="18" height="14"/><rect x="1040" y="360" width="18" height="14"/><rect x="1080" y="360" width="18" height="14"/>
+          </g>
+
+          <!-- escadas: degraus -->
+          <g>
+            <line x1="152" y1="452" x2="219" y2="452"/><line x1="152" y1="464" x2="219" y2="464"/>
+            <line x1="152" y1="476" x2="219" y2="476"/><line x1="152" y1="488" x2="219" y2="488"/>
+            <line x1="152" y1="500" x2="219" y2="500"/><line x1="152" y1="512" x2="219" y2="512"/>
+            <line x1="152" y1="524" x2="219" y2="524"/><line x1="152" y1="536" x2="219" y2="536"/>
+          </g>
+          <g>
+            <line x1="871" y1="406" x2="902" y2="406"/><line x1="871" y1="418" x2="902" y2="418"/>
+            <line x1="871" y1="430" x2="902" y2="430"/><line x1="871" y1="442" x2="902" y2="442"/>
+            <line x1="871" y1="454" x2="902" y2="454"/><line x1="871" y1="466" x2="902" y2="466"/>
+            <line x1="871" y1="478" x2="902" y2="478"/><line x1="871" y1="490" x2="902" y2="490"/>
+          </g>
+          <g>
+            <line x1="904" y1="472" x2="936" y2="472"/><line x1="904" y1="484" x2="936" y2="484"/>
+            <line x1="904" y1="496" x2="936" y2="496"/><line x1="904" y1="508" x2="936" y2="508"/>
+            <line x1="904" y1="520" x2="936" y2="520"/><line x1="904" y1="532" x2="936" y2="532"/>
+          </g>
+
+          <!-- terraço: mesa redonda + copas -->
+          <circle cx="760" cy="160" r="26"/>
+          <circle cx="670" cy="140" r="10"/>
+          <circle cx="850" cy="140" r="10"/>
+
+          <!-- estacionamento: lugares -->
+          <line x1="310" y1="558" x2="310" y2="648"/>
+          <line x1="388" y1="558" x2="388" y2="648"/>
+          <line x1="466" y1="558" x2="466" y2="648"/>
+          <line x1="544" y1="558" x2="544" y2="648"/>
+        </g>
+
+        <!-- ============ PAREDES (contorno geral, simplificado) ============ -->
+        <path class="walls" d="
+          M148,276 L1195,276 L1195,558 L148,558 Z
+          M258,278 L258,380
+          M360,278 L360,380
+          M148,380 L258,380
+          M223,380 L223,559
+          M460,278 L460,535
+          M620,278 L620,535
+          M558,380 L558,535
+          M222,535 L460,535
+          M281,535 L281,558
+          M341,535 L341,558
+          M401,535 L401,558
+          M605,320 L605,559
+          M670,320 L670,559
+          M670,410 L811,410
+          M811,320 L811,540
+          M860,320 L860,540
+          M867,320 L867,559
+          M906,320 L906,559
+          M867,394 L906,394
+          M900,278 L969,278
+          M900,310 L969,310
+          M900,394 L969,394
+          M900,460 L940,460
+          M940,278 L940,559
+          M969,308 L1150,308
+          M969,400 L1150,400
+        "/>
+        <path class="walls walls--exterior" d="
+          M232,558 L232,648 L620,648 L620,558
+          M840,558 L840,648 L900,648 L900,558
+          M600,90 L600,276
+          M900,90 L900,276
+          M600,90 L900,90
+        "/>
+
+        <!-- ============ RÓTULOS ============ -->
+        <g class="room-label">
+          <text x="203" y="332">B0.01</text>
+          <text x="309" y="332">B0.02</text>
+          <text x="410" y="332">B0.03</text>
+          <text x="203" y="413">WC</text>
+          <text x="185" y="502" transform="rotate(-90 185 502)">ESCADAS</text>
+          <text x="540" y="332">OPEN SPACE</text>
+          <text x="359" y="460">OPEN SPACE</text>
+          <text x="589" y="460">O.S.</text>
+          <text x="509" y="460">FORMAÇÃO 1</text>
+          <text x="251" y="550" font-size="6.5">C1</text>
+          <text x="311" y="550" font-size="6.5">C2</text>
+          <text x="371" y="550" font-size="6.5">C3</text>
+          <text x="430" y="550" font-size="6.5">C4</text>
+          <text x="637" y="440" transform="rotate(-90 637 440)">CORREDOR</text>
+          <text x="740" y="368">SALA POLIV. 1</text>
+          <text x="740" y="478">ÁREA TÉCNICA</text>
+          <text x="835" y="432" transform="rotate(-90 835 432)" font-size="8">FORMAÇÃO COMERCIAL</text>
+          <text x="886" y="360" font-size="7">WC</text>
+          <text x="886" y="480" transform="rotate(-90 886 480)" font-size="7">ESCADAS</text>
+          <text x="750" y="185">TERRAÇO</text>
+          <text x="934" y="297" font-size="7">WC</text>
+          <text x="934" y="355">B0.16</text>
+          <text x="934" y="430">COPA</text>
+          <text x="920" y="512" transform="rotate(-90 920 512)" font-size="7">ESC.</text>
+          <text x="1059" y="297">OPEN SPACE DIREITO</text>
+          <text x="1059" y="482">FORMAÇÃO 2</text>
+          <text x="426" y="608">ESTACIONAMENTO</text>
+          <text x="870" y="608" font-size="7">ENTRADA</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <div class="map-panel__hint" style="margin-top:8px; display:block;">
+      * Reconstrução baseada na planta real fornecida — a imagem original tem resolução baixa
+      e alguns rótulos de texto não são 100% legíveis. Confirma/ajusta nomes em <code>JS/rooms-data.js</code>.
+    </div>
+
+    <div class="legend">
+      <span class="legend__item"><i class="legend__swatch legend__swatch--gabinete"></i>Gabinetes</span>
+      <span class="legend__item"><i class="legend__swatch legend__swatch--circulacao"></i>Circulação</span>
+      <span class="legend__item"><i class="legend__swatch legend__swatch--apoio"></i>Apoio / arrumos</span>
+      <span class="legend__item"><i class="legend__swatch legend__swatch--reuniao"></i>Reuniões</span>
+      <span class="legend__item"><i class="legend__swatch legend__swatch--aula"></i>Sala de aula</span>
+    </div>
+  </section>
+
+  <aside class="detail-panel" aria-live="polite">
+    <div class="detail-panel__empty" id="detail-empty">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21V9.5L12 3l9 6.5V21h-6v-7H9v7H3Z" stroke-linejoin="round"/></svg>
+      Seleciona uma divisória na planta<br>para veres a ficha da sala.
+    </div>
+
+    <div class="detail-card" id="detail-card">
+      <div class="detail-card__image" id="detail-image"><span></span></div>
+      <div>
+        <div class="detail-card__id" id="detail-id"></div>
+        <h2 class="detail-card__name" id="detail-nome"></h2>
+      </div>
+      <dl class="detail-card__meta">
+        <div class="detail-card__stat">
+          <dt>Função</dt>
+          <dd id="detail-funcao"></dd>
+        </div>
+        <div class="detail-card__stat">
+          <dt>Nº máx. lugares</dt>
+          <dd id="detail-capacidade"></dd>
+        </div>
+      </dl>
+      <button class="detail-card__close" id="detail-close">Fechar ficha</button>
+    </div>
+  </aside>
+
+</main>
+
+<div id="footer-slot"></div>
+
+<script src="JS/rooms-data.js"></script>
+<script src="JS/script.js"></script>
+</body>
+</html>

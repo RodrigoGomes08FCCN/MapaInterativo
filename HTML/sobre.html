@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre — Mapa Interativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../CSS/style.css">
+<style>
+  .about { max-width: 640px; margin: 48px auto; padding: 0 20px; font-family: var(--font-body); line-height: 1.7; }
+  .about h1 { font-family: var(--font-display); }
+  .about code { font-family: var(--font-mono); background: #fff; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--paper-line); }
+</style>
+</head>
+<body>
+
+<div id="header-slot"></div>
+
+<main class="about">
+  <h1>Sobre este mapa</h1>
+  <p>Esta página serve de exemplo de como reutilizar o <code>header</code> e o
+  <code>footer</code> guardados em <code>/INCLUDES</code> a partir de qualquer
+  página dentro da pasta <code>/HTML</code>. Basta incluir os mesmos dois
+  <code>&lt;div&gt;</code> (<code>#header-slot</code> e <code>#footer-slot</code>)
+  e carregar o <code>JS/script.js</code>.</p>
+  <p>À medida que novas plantas forem chegando (Piso 1, Piso 2, outros
+  edifícios...), cada uma pode ser adicionada como um novo <code>&lt;g
+  class="floor"&gt;</code> dentro do SVG de <code>index.html</code>, com os
+  respetivos dados em <code>JS/rooms-data.js</code>.</p>
+  <p><a href="../index.html">← Voltar ao mapa</a></p>
+</main>
+
+<div id="footer-slot"></div>
+
+<script src="../JS/rooms-data.js"></script>
+<script>
+  // Nesta página os slots de include usam caminhos relativos a partir de /HTML
+  document.addEventListener("DOMContentLoaded", async () => {
+    const load = async (sel, path) => {
+      const el = document.querySelector(sel);
+      const res = await fetch(path);
+      el.innerHTML = await res.text();
+    };
+    try {
+      await load("#header-slot", "../INCLUDES/header.html");
+      await load("#footer-slot", "../INCLUDES/footer.html");
+    } catch (e) {
+      console.warn("Corre num servidor local para os includes funcionarem.", e);
+    }
+  });
+</script>
+</body>
+</html>
