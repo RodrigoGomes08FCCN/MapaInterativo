@@ -193,11 +193,11 @@ a { color: inherit; }
 }
 
 .map-frame {
-  background: var(--blueprint);
+  background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 18px 40px -22px rgba(8, 26, 46, 0.55);
+  box-shadow: 0 12px 28px -20px rgba(20, 36, 51, 0.25);
   padding: 18px;
-  border: 1px solid #0a2036;
+  border: 1px solid var(--paper-line);
 }
 
 .map-frame svg {
@@ -209,15 +209,15 @@ a { color: inherit; }
 /* --- salas dentro do SVG --- */
 .room {
   cursor: pointer;
-  fill-opacity: 0.16;
+  fill-opacity: 0.14;
   stroke: none;
   transition: fill-opacity 0.15s ease;
 }
 
-.room:hover { fill-opacity: 0.38; }
+.room:hover { fill-opacity: 0.34; }
 
 .room.is-selected {
-  fill-opacity: 0.5;
+  fill-opacity: 0.45;
   stroke: var(--accent);
   stroke-width: 2.4;
   stroke-dasharray: 6 4;
@@ -236,26 +236,40 @@ a { color: inherit; }
 
 .walls {
   fill: none;
-  stroke: var(--line-strong);
-  stroke-width: 2.2;
+  stroke: var(--ink);
+  stroke-width: 1.8;
   stroke-linejoin: round;
+}
+
+.walls--exterior {
+  stroke: var(--ink-soft);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 3;
 }
 
 .deco {
   fill: none;
-  stroke: var(--line);
-  stroke-width: 1.2;
+  stroke: var(--ink-soft);
+  stroke-width: 1;
 }
 
-.deco-fill { fill: var(--blueprint-deep); }
+.deco-fill { fill: #eef1f4; }
 
 .room-label {
   font-family: var(--font-mono);
   font-size: 9.5px;
-  fill: var(--line-strong);
+  fill: var(--ink);
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.8;
   text-anchor: middle;
+}
+
+.floor-group {
+  display: none !important;
+}
+
+.floor-group.is-active {
+  display: block !important;
 }
 
 /* legenda */

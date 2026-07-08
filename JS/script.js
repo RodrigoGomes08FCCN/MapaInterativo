@@ -15,6 +15,12 @@
 
 const CURRENT = { edificio: "B", piso: "0" };
 
+const FLOOR_VIEWBOX = {
+  "B-0": "120 60 1100 620",
+  "B-1": "40 130 900 300",
+  "A-0": "20 130 960 320"
+};
+
 /* -------------------------------------------------------------- */
 /* 1) Includes (header / footer)                                   */
 /* -------------------------------------------------------------- */
@@ -35,7 +41,60 @@ async function loadInclude(targetSelector, path) {
 }
 
 /* -------------------------------------------------------------- */
-/* 2) Mapa interativo                                               */
+/* 2) Troca de piso / edifício                                     */
+/* -------------------------------------------------------------- */
+function switchFloor(edificio, piso) {
+  CURRENT.edificio = edificio;
+  CURRENT.piso = piso;
+  const key = `${edificio}-${piso}`;
+
+  const svg = document.getElementById("floor-svg");
+  const emptyMsg = document.getElementById("floor-empty-msg");
+
+  // Força visibilidade via estilo inline em TODOS os grupos — não depender
+  // só da classe CSS evita problemas de timing/especificidade entre browsers.
+  document.querySelectorAll(".floor-group").forEach((g) => {
+    g.classList.remove("is-active");
+    g.style.display = "none";
+  });
+  const target = document.getElementById(`fg-${key}`);
+
+  if (!target || !ROOMS_DATA[key]) {
+    if (emptyMsg) emptyMsg.style.display = "block";
+    if (svg) svg.style.display = "none";
+    clearDetail();
+    return;
+  }
+
+  if (emptyMsg) emptyMsg.style.display = "none";
+  if (svg) {
+    svg.style.display = "block";
+    svg.setAttribute("viewBox", FLOOR_VIEWBOX[key] || "0 0 1000 600");
+  }
+  target.classList.add("is-active");
+  target.style.display = "block";
+  clearDetail();
+  wireRooms();
+
+  const footerPiso = document.getElementById("footer-piso-atual");
+  const floor = ROOMS_DATA[key];
+  if (footerPiso && floor) footerPiso.textContent = `${floor.edificio} · ${floor.piso}`;
+
+  const heading = document.getElementById("map-heading-title");
+  if (heading && floor) heading.textContent = `${floor.edificio} — ${floor.piso}`;
+}
+
+function wireFloorSelectors() {
+  const selEdificio = document.getElementById("select-edificio");
+  const selPiso = document.getElementById("select-piso");
+  if (!selEdificio || !selPiso) return;
+  const onChange = () => switchFloor(selEdificio.value, selPiso.value);
+  selEdificio.addEventListener("change", onChange);
+  selPiso.addEventListener("change", onChange);
+}
+
+/* -------------------------------------------------------------- */
+/* 3) Mapa interativo                                               */
 /* -------------------------------------------------------------- */
 function getFloorData() {
   const key = `${CURRENT.edificio}-${CURRENT.piso}`;
@@ -107,6 +166,8 @@ function clearDetail() {
 
 function wireRooms() {
   document.querySelectorAll(".room").forEach((el) => {
+    if (el.dataset.wired === "1") return;
+    el.dataset.wired = "1";
     el.addEventListener("click", () => renderDetail(el.dataset.room));
     el.addEventListener("keydown", (ev) => {
       if (ev.key === "Enter" || ev.key === " ") {
@@ -117,7 +178,10 @@ function wireRooms() {
   });
 
   const closeBtn = document.getElementById("detail-close");
-  if (closeBtn) closeBtn.addEventListener("click", clearDetail);
+  if (closeBtn && closeBtn.dataset.wired !== "1") {
+    closeBtn.dataset.wired = "1";
+    closeBtn.addEventListener("click", clearDetail);
+  }
 }
 
 /* -------------------------------------------------------------- */
@@ -129,4 +193,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadInclude("#footer-slot", "INCLUDES/footer.html")
   ]);
   wireRooms();
+  wireFloorSelectors();
+
+  // Sincroniza os <select> com o estado inicial e força a visibilidade
+  // correta dos grupos de piso (não confiar só nas classes estáticas do HTML).
+  const selEdificio = document.getElementById("select-edificio");
+  const selPiso = document.getElementById("select-piso");
+  if (selEdificio) selEdificio.value = CURRENT.edificio;
+  if (selPiso) selPiso.value = CURRENT.piso;
+  switchFloor(CURRENT.edificio, CURRENT.piso);
 });
