@@ -20,99 +20,54 @@ const ROOMS_DATA = {
   "B-0": {
     edificio: "Edifício B",
     piso: "Piso 0",
-    /*
-     * NOTA: esta versão foi reconstruída a partir da planta real
-     * "EDIF B - Planta do Piso 0 com identificação dos espaços".
-     * O ficheiro original tem resolução baixa, pelo que a maioria dos
-     * rótulos de texto (nomes das salas) não é totalmente legível —
-     * "Corredor", "Frigorífico" e algo como "Formação Comercial" foram
-     * os únicos que consegui confirmar com confiança. As restantes
-     * divisórias foram identificadas pelas paredes, portas e mobiliário
-     * desenhado (mesas redondas = reunião, grelhas de mesas = formação,
-     * ícones de sanita = WC, escadas hachuradas, etc.) — os nomes/
-     * funções abaixo são a minha melhor estimativa. Ajusta livremente
-     * os campos "nome", "funcao" e "capacidade" consoante conheças o
-     * edifício real; as chaves (ex.: "reuniao_pequena") têm de
-     * corresponder ao atributo data-room do SVG em index.html.
-     */
     salas: {
-      reuniao_pequena: {
-        id: "B0.01", nome: "Sala de Reuniões 1", funcao: "Reunião (mesa oval)", capacidade: 8, imagem: null, cor: "reuniao"
+      sala1: {
+        id: "B0.01", nome: "Sala 1", funcao: "Gabinete", capacidade: 2, imagem: null, cor: "gabinete"
       },
-      gab_a: {
-        id: "B0.02", nome: "Gabinete A", funcao: "Gabinete individual", capacidade: 2, imagem: null, cor: "gabinete"
+      sala2: {
+        id: "B0.02", nome: "Sala 2", funcao: "Gabinete", capacidade: 2, imagem: null, cor: "gabinete"
       },
-      gab_b: {
-        id: "B0.03", nome: "Gabinete B", funcao: "Gabinete individual", capacidade: 2, imagem: null, cor: "gabinete"
+      hall: {
+        id: "B0.00", nome: "Átrio Central", funcao: "Circulação / zona de estar", capacidade: 30, imagem: null, cor: "circulacao"
       },
-      wc_esquerda: {
-        id: "B0.04", nome: "Instalações Sanitárias — Ala Esquerda", funcao: "WC (inclui casa de banho adaptada)", capacidade: null, imagem: null, cor: "circulacao"
+      sala3: {
+        id: "B0.03", nome: "Sala de Apoio 1", funcao: "Arrumos", capacidade: 4, imagem: null, cor: "apoio"
       },
-      escadas_esquerda: {
-        id: "B0.05", nome: "Escadas — Ala Esquerda", funcao: "Circulação vertical / zona de frigorífico", capacidade: null, imagem: null, cor: "circulacao"
+      sala4: {
+        id: "B0.04", nome: "Sala de Apoio 2", funcao: "Arrumos", capacidade: 4, imagem: null, cor: "apoio"
       },
-      open_space_esquerdo: {
-        id: "B0.06", nome: "Open Space Esquerdo", funcao: "Postos de trabalho / zona de convívio", capacidade: 24, imagem: null, cor: "aula"
+      sala5: {
+        id: "B0.05", nome: "Sala de Apoio 3", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio"
       },
-      sala_formacao_esquerda: {
-        id: "B0.07", nome: "Sala de Formação 1", funcao: "Sala de aula / formação", capacidade: 24, imagem: null, cor: "reuniao"
+      sala6: {
+        id: "B0.06", nome: "Sala de Apoio 4", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio"
       },
-      corredor_central: {
-        id: "B0.08", nome: "Corredor", funcao: "Circulação", capacidade: null, imagem: null, cor: "circulacao"
+      gabcentral: {
+        id: "B0.07", nome: "Gabinete Central", funcao: "Gabinete", capacidade: 2, imagem: null, cor: "gabinete"
       },
-      sala_c2: {
-        id: "B0.09", nome: "Sala Polivalente 1", funcao: "Sala polivalente / reunião", capacidade: 12, imagem: null, cor: "reuniao"
+      reunioes: {
+        id: "B0.08", nome: "Sala de Reuniões", funcao: "Reuniões", capacidade: 12, imagem: null, cor: "reuniao"
       },
-      area_tecnica: {
-        id: "B0.10", nome: "Área Técnica", funcao: "Instalações técnicas", capacidade: 0, imagem: null, cor: "apoio"
+      escadas: {
+        id: "B0.09", nome: "Escadas", funcao: "Circulação vertical", capacidade: null, imagem: null, cor: "circulacao"
       },
-      formacao_comercial: {
-        id: "B0.11", nome: "Formação Comercial", funcao: "Sala de formação", capacidade: 16, imagem: null, cor: "reuniao"
+      arrumo1: {
+        id: "B0.10", nome: "Arrumo 1", funcao: "Arrumos", capacidade: 0, imagem: null, cor: "apoio"
       },
-      wc_central: {
-        id: "B0.12", nome: "Instalações Sanitárias — Zona Central", funcao: "WC", capacidade: null, imagem: null, cor: "circulacao"
+      arrumo2: {
+        id: "B0.11", nome: "Arrumo 2", funcao: "Arrumos", capacidade: 0, imagem: null, cor: "apoio"
       },
-      escadas_central: {
-        id: "B0.13", nome: "Escadas — Zona Central", funcao: "Circulação vertical", capacidade: null, imagem: null, cor: "circulacao"
+      gab3: {
+        id: "B0.12", nome: "Gabinete 2.1", funcao: "Gabinete", capacidade: 3, imagem: null, cor: "gabinete"
       },
-      terraco: {
-        id: "B0.14", nome: "Terraço / Zona de Convívio Exterior", funcao: "Espaço exterior coberto com estar", capacidade: 20, imagem: null, cor: "aula"
+      gab4: {
+        id: "B0.13", nome: "Gabinete 2.2", funcao: "Gabinete", capacidade: 3, imagem: null, cor: "gabinete"
       },
-      wc_direita: {
-        id: "B0.15", nome: "Instalações Sanitárias — Ala Direita", funcao: "WC (inclui casa de banho adaptada)", capacidade: null, imagem: null, cor: "circulacao"
+      recepcao: {
+        id: "B0.14", nome: "Receção", funcao: "Receção / átrio de entrada", capacidade: 10, imagem: null, cor: "circulacao"
       },
-      sala_reuniao_direita: {
-        id: "B0.16", nome: "Sala de Reuniões 2", funcao: "Reunião", capacidade: 6, imagem: null, cor: "reuniao"
-      },
-      copa_direita: {
-        id: "B0.17", nome: "Copa", funcao: "Copa / kitchenette (com frigorífico)", capacidade: 8, imagem: null, cor: "apoio"
-      },
-      escadas_direita: {
-        id: "B0.18", nome: "Escadas — Ala Direita", funcao: "Circulação vertical", capacidade: null, imagem: null, cor: "circulacao"
-      },
-      open_space_direito: {
-        id: "B0.19", nome: "Open Space Direito", funcao: "Postos de trabalho", capacidade: 20, imagem: null, cor: "aula"
-      },
-      sala_formacao_direita: {
-        id: "B0.20", nome: "Sala de Formação 2", funcao: "Sala de aula / formação", capacidade: 24, imagem: null, cor: "reuniao"
-      },
-      parqueamento: {
-        id: "B0.21", nome: "Estacionamento", funcao: "Estacionamento coberto", capacidade: 4, imagem: null, cor: "apoio"
-      },
-      entrada_lateral: {
-        id: "B0.22", nome: "Entrada Lateral", funcao: "Acesso / controlo de entrada", capacidade: null, imagem: null, cor: "circulacao"
-      },
-      cubiculo_1: {
-        id: "B0.23", nome: "Gabinete C1", funcao: "Gabinete individual", capacidade: 2, imagem: null, cor: "gabinete"
-      },
-      cubiculo_2: {
-        id: "B0.24", nome: "Gabinete C2", funcao: "Gabinete individual", capacidade: 2, imagem: null, cor: "gabinete"
-      },
-      cubiculo_3: {
-        id: "B0.25", nome: "Gabinete C3", funcao: "Gabinete individual", capacidade: 2, imagem: null, cor: "gabinete"
-      },
-      cubiculo_4: {
-        id: "B0.26", nome: "Gabinete C4", funcao: "Gabinete individual", capacidade: 2, imagem: null, cor: "gabinete"
+      aula_magna: {
+        id: "B0.15", nome: "Sala de Aula Magna", funcao: "Sala de aula", capacidade: 60, imagem: null, cor: "aula"
       }
     }
   },
