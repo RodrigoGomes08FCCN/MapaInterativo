@@ -68,6 +68,9 @@ const ROOMS_DATA = {
       },
       aula_magna: {
         id: "B0.15", nome: "Sala de Aula Magna", funcao: "Sala de aula", capacidade: 60, imagem: null, cor: "aula"
+      },
+      estudio: {
+        id: "B0.16", nome: "Sala do estudio", funcao: "Estudio", capacidade: 60, imagem: null, cor: "estudio"
       }
     }
   },

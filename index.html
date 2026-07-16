@@ -25,18 +25,20 @@
     </div>
 
     <div class="map-frame">
-      <svg id="floor-svg" viewBox="120 60 1100 620" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Planta interativa">
+      <svg id="floor-svg" viewBox="0 130 995 300" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Planta interativa">
 
         <g class="floor-group is-active" id="fg-B-0">
 
         <!-- ============ SALAS (áreas clicáveis) ============ -->
         <g class="floor" id="floor-B-0">
 
+          <rect class="room room--circulacao" data-room="corredor_esquerdo" x="8" y="161" width="58" height="243" tabindex="0" role="button" aria-label="Corredor Exterior"/>
+
           <rect class="room room--gabinete" data-room="sala1" x="133" y="161" width="51" height="62" tabindex="0" role="button" aria-label="Sala 1"/>
           <rect class="room room--gabinete" data-room="sala2" x="184" y="161" width="55" height="62" tabindex="0" role="button" aria-label="Sala 2"/>
 
           <polygon class="room room--circulacao" data-room="hall"
-            points="66,161 133,161 133,223 239,223 239,161 465,161 465,404 353,404 353,342 133,342 133,404 66,404"
+            points="66,161 133,161 133,223 239,223 239,161 522,161 522,181 465,181 465,404 353,404 353,342 133,342 133,404 66,404"
             tabindex="0" role="button" aria-label="Átrio Central"/>
 
           <rect class="room room--apoio" data-room="sala3" x="133" y="342" width="52" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 1"/>
@@ -44,73 +46,37 @@
           <rect class="room room--apoio" data-room="sala5" x="242" y="342" width="54" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 3"/>
           <rect class="room room--apoio" data-room="sala6" x="296" y="342" width="57" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 4"/>
 
-          <rect class="room room--gabinete" data-room="gabcentral" x="465" y="161" width="57" height="243" tabindex="0" role="button" aria-label="Gabinete Central"/>
+          <rect class="room room--gabinete" data-room="gabcentral" x="465" y="181" width="57" height="223" tabindex="0" role="button" aria-label="Gabinete Central"/>
 
-          <polygon class="room room--reuniao" data-room="reunioes"
-            points="522,161 742,161 742,213 688,213 688,404 522,404"
-            tabindex="0" role="button" aria-label="Sala de Reuniões"/>
+          <rect class="room room--estudio" data-room="estudio" x="525" y="214" width="165" height="193" tabindex="0" role="button" aria-label="Sala do Estúdio"/>
 
-          <rect class="room room--circulacao" data-room="escadas" x="688" y="213" width="54" height="191" tabindex="0" role="button" aria-label="Escadas"/>
+          <rect class="room room--circulacao" data-room="escadas" x="688" y="211" width="52" height="193" tabindex="0" role="button" aria-label="Escadas e Receção"/>
+          <rect class="room room--apoio" data-room="entrada" x="688" y="404" width="30" height="34" tabindex="0" role="button" aria-label="Entrada"/>
 
           <rect class="room room--apoio" data-room="arrumo1" x="742" y="161" width="29" height="50" tabindex="0" role="button" aria-label="Arrumo 1"/>
           <rect class="room room--apoio" data-room="arrumo2" x="771" y="161" width="28" height="50" tabindex="0" role="button" aria-label="Arrumo 2"/>
           <rect class="room room--gabinete" data-room="gab3" x="799" y="161" width="63" height="50" tabindex="0" role="button" aria-label="Gabinete 2.1"/>
           <rect class="room room--gabinete" data-room="gab4" x="862" y="161" width="66" height="50" tabindex="0" role="button" aria-label="Gabinete 2.2"/>
 
-          <rect class="room room--circulacao" data-room="recepcao" x="742" y="211" width="65" height="193" tabindex="0" role="button" aria-label="Receção"/>
-          <rect class="room room--aula" data-room="aula_magna" x="807" y="211" width="163" height="193" tabindex="0" role="button" aria-label="Sala de Aula Magna"/>
+          <rect class="room room--aula" data-room="aula_magna" x="745" y="211" width="225" height="193" tabindex="0" role="button" aria-label="Sala de Aula Magna"/>
 
         </g>
 
-        <!-- ============ DECORAÇÃO (mobiliário estilizado, não clicável) ============ -->
+        <!-- ============ PAREDES + MOBILIÁRIO (traçado exato exportado do Canva) ============ -->
         <g class="deco" aria-hidden="true">
-          <circle cx="406" cy="258" r="40"/>
-
-          <rect x="483" y="180" width="40" height="115"/>
-          <rect x="493" y="215" width="60" height="48"/>
-          <rect x="553" y="215" width="90" height="48"/>
-          <rect x="493" y="263" width="60" height="35"/>
-
-          <!-- escadas: degraus -->
-          <line x1="694" y1="228" x2="736" y2="228"/>
-          <line x1="694" y1="242" x2="736" y2="242"/>
-          <line x1="694" y1="256" x2="736" y2="256"/>
-          <line x1="694" y1="270" x2="736" y2="270"/>
-          <line x1="694" y1="284" x2="736" y2="284"/>
-          <line x1="694" y1="298" x2="736" y2="298"/>
-          <line x1="694" y1="312" x2="736" y2="312"/>
-          <line x1="694" y1="326" x2="736" y2="326"/>
-          <line x1="694" y1="340" x2="736" y2="340"/>
-
-          <!-- receção: balcão curvo -->
-          <path d="M807,300 L807,335 Q807,355 827,355 L850,355"/>
+          <path d="M 744.00 207.05 L 744.00 344.00 L 664.17 344.00 C620.26,344.00 584.03,343.70 583.67,343.33 C583.30,342.97 583.00,339.37 583.00,335.33 C583.00,329.48 583.30,328.00 584.50,328.00 C585.68,328.00 586.00,329.39 586.00,334.50 L 586.00 341.00 L 742.17 341.00 L 741.48 275.75 C741.10,239.86 740.69,210.39 740.57,210.26 C740.45,210.12 715.74,209.71 685.67,209.34 L 631.00 208.67 L 631.00 250.15 C631.00,285.86 631.00,292.89 627.53,296.92 C626.65,297.94 625.56,298.76 624.19,299.81 C620.72,302.46 620.39,302.51 603.38,302.81 L 586.09 303.13 L 585.80 309.23 C585.61,313.09 585.03,315.50 584.22,315.76 C583.20,316.10 582.96,310.64 583.04,288.84 C583.14,261.93 583.10,261.49 581.07,261.18 C578.48,260.78 578.33,259.00 580.88,259.00 C583.69,259.00 584.03,253.62 583.89,211.75 L 583.77 175.00 L 239.04 175.00 L 238.77 196.25 L 238.50 217.50 L 202.25 217.76 L 166.00 218.02 L 166.00 296.99 L 241.25 297.24 L 316.50 297.50 L 316.77 318.75 L 317.04 340.00 L 392.99 340.00 L 393.50 185.50 L 412.87 185.23 C426.31,185.04 432.66,185.31 433.62,186.10 C434.64,186.94 435.00,190.10 435.00,198.12 L 435.00 209.00 L 480.58 209.00 C516.60,209.00 526.08,209.26 525.76,210.25 C525.53,210.94 524.13,211.64 522.65,211.82 L 519.96 212.14 L 520.23 232.32 L 520.50 252.50 L 523.27 252.82 C524.79,252.99 525.77,253.56 525.46,254.07 C525.12,254.61 512.57,255.00 495.48,255.00 L 466.07 255.00 L 465.79 264.75 L 465.50 274.50 L 450.36 274.78 C435.67,275.04 435.20,275.12 434.62,277.28 C433.84,280.19 433.85,334.83 434.63,337.75 L 435.23 340.00 L 547.06 340.00 L 546.83 297.50 L 546.59 255.00 L 543.79 255.00 C540.19,255.00 540.15,253.23 543.75,252.82 L 546.50 252.50 L 547.04 212.00 L 544.02 212.00 C542.00,212.00 541.00,211.50 541.00,210.50 C541.00,209.42 542.11,209.00 544.98,209.00 L 548.97 209.00 L 549.50 258.50 L 559.50 258.97 L 569.50 259.43 L 559.25 259.97 L 549.00 260.50 L 548.21 340.00 L 558.11 340.00 C566.24,340.00 568.00,340.27 568.00,341.50 C568.00,342.83 544.79,342.98 362.83,342.75 C199.77,342.55 157.58,342.24 157.25,341.25 C156.98,340.43 157.90,340.00 159.92,340.00 L 163.01 340.00 L 162.98 257.50 L 162.96 175.00 L 119.00 175.00 L 119.00 340.00 L 128.08 340.00 C134.90,340.00 137.06,340.31 136.75,341.25 C136.19,342.95 119.35,343.53 117.40,341.92 C116.22,340.94 116.00,327.74 116.00,257.96 C116.00,212.42 116.27,174.45 116.61,173.58 C117.16,172.14 144.50,172.00 416.36,172.00 L 715.50 172.00 L 715.50 206.50 L 729.75 206.78 ZM 395.00 188.00 L 395.00 340.00 L 432.00 340.00 L 432.00 275.00 L 421.62 275.00 C414.05,275.00 410.94,274.63 410.11,273.63 C409.30,272.66 409.05,264.24 409.23,244.88 L 409.50 217.50 L 420.75 217.22 L 432.00 216.93 L 432.00 188.00 ZM 586.69 268.35 C587.06,268.73 596.63,268.92 607.94,268.77 L 628.50 268.50 L 628.77 239.25 L 629.03 210.00 L 586.00 210.00 L 586.00 238.83 C586.00,254.69 586.31,267.98 586.69,268.35 ZM 466.68 252.35 C467.06,252.73 478.65,252.91 492.43,252.77 L 517.50 252.50 L 518.04 212.00 L 466.00 212.00 L 466.00 231.83 C466.00,242.74 466.31,251.97 466.68,252.35 ZM 278.00 299.00 L 278.00 340.00 L 315.00 340.00 L 315.00 299.00 ZM 202.00 299.00 L 202.00 340.00 L 238.00 340.00 L 238.00 299.00 ZM 201.00 175.00 L 201.00 215.05 L 236.50 214.50 L 236.50 194.75 C236.50,183.89 236.16,175.00 235.75,175.00 ZM 241.00 299.00 L 241.00 340.00 L 275.00 340.00 L 275.00 299.00 ZM 669.67 206.33 C670.03,206.70 679.71,207.00 691.17,207.00 L 712.00 207.00 L 712.00 175.00 L 669.00 175.00 L 669.00 190.33 C669.00,198.77 669.30,205.97 669.67,206.33 ZM 166.00 299.00 L 166.00 340.00 L 199.00 340.00 L 199.00 299.00 ZM 165.69 214.36 C166.07,214.74 173.38,214.93 181.94,214.77 L 197.50 214.50 L 197.77 194.75 L 198.04 175.00 L 165.00 175.00 L 165.00 194.33 C165.00,204.97 165.31,213.98 165.69,214.36 ZM 586.00 271.00 L 586.00 300.00 L 619.93 300.00 L 623.44 296.92 C627.70,293.18 628.99,288.98 628.99,278.75 L 629.00 271.00 ZM 434.64 252.22 C434.92,252.68 441.53,252.93 449.33,252.78 L 463.50 252.50 L 463.77 232.25 L 464.04 212.00 L 449.63 212.00 C435.49,212.00 435.21,212.04 434.65,214.26 C433.94,217.08 433.93,251.08 434.64,252.22 ZM 631.65 200.27 L 632.29 207.05 L 649.40 206.77 L 666.50 206.50 L 667.05 175.00 L 631.00 175.00 L 631.01 184.25 C631.01,189.34 631.30,196.55 631.65,200.27 ZM 412.00 219.00 L 412.00 253.00 L 432.00 253.00 L 432.00 219.00 ZM 434.55 269.21 L 435.16 272.00 L 464.00 272.00 L 464.00 255.00 L 434.31 255.00 L 434.12 260.71 C434.02,263.86 434.21,267.68 434.55,269.21 ZM 586.84 202.43 L 587.20 207.00 L 607.60 207.00 C619.57,207.00 628.00,206.61 628.00,206.07 C628.00,205.55 626.76,204.99 625.25,204.82 C622.74,204.53 622.52,204.18 622.79,200.78 L 623.08 197.06 L 605.18 197.05 C595.34,197.05 587.10,197.23 586.88,197.45 C586.66,197.68 586.64,199.92 586.84,202.43 ZM 586.70 194.37 C587.09,194.76 591.03,194.95 595.45,194.79 L 603.50 194.50 L 603.79 184.75 L 604.07 175.00 L 586.00 175.00 L 586.00 184.33 C586.00,189.47 586.32,193.98 586.70,194.37 ZM 412.00 255.00 L 412.00 272.00 L 432.00 272.00 L 432.00 255.00 ZM 607.00 175.00 L 607.00 195.08 L 614.75 194.79 L 622.50 194.50 L 622.79 184.75 L 623.07 175.00 ZM 566.00 296.00 C566.00,314.00 565.79,317.00 564.50,317.00 C563.34,317.00 563.00,315.69 563.00,311.20 C563.00,308.01 562.46,304.86 561.80,304.20 C560.87,303.27 560.87,302.73 561.80,301.80 C562.61,300.99 563.00,296.42 563.00,287.80 C563.00,277.09 563.24,275.00 564.50,275.00 C565.79,275.00 566.00,278.00 566.00,296.00 ZM 625.67 201.33 C627.57,203.23 628.00,200.84 628.00,188.50 C628.00,177.17 627.76,175.00 626.50,175.00 C625.24,175.00 625.00,177.09 625.00,187.83 C625.00,194.89 625.30,200.97 625.67,201.33 Z" transform="matrix(1.446,0,0,1.446,-103.66,-89.64)" fill="#142433" stroke="none"/>
         </g>
 
-        <!-- ============ PAREDES (traço técnico) ============ -->
+        <!-- ============ PAREDES ADICIONAIS (Corredor Exterior + Entrada, não presentes no ficheiro original) ============ -->
         <path class="walls" d="
-          M66,161 L931,161 L931,211 L970,211 L970,404 L66,404 Z
-          M133,161 L133,404
-          M184,161 L184,223
-          M239,161 L239,223
-          M133,223 L239,223
-          M133,342 L353,342
-          M185,342 L185,404
-          M242,342 L242,404
-          M296,342 L296,404
-          M353,342 L353,404
-          M465,161 L465,404
-          M522,161 L522,404
-          M688,213 L688,404
-          M742,161 L742,335
-          M742,349 L742,404
-          M742,211 L928,211
-          M771,161 L771,211
-          M807,161 L807,404
-          M862,161 L862,211
+          M8,161 L66,161
+          M8,161 L8,404 L66,404
+          M718,404 L718,438 L688,438 L688,404
         "/>
 
         <!-- ============ RÓTULOS ============ -->
         <g class="room-label">
+          <text x="37" y="285" transform="rotate(-90 37 285)">CORREDOR</text>
           <text x="158" y="195">SALA 1</text>
           <text x="211" y="195">SALA 2</text>
           <text x="150" y="280" transform="rotate(-90 150 280)">ÁTRIO</text>
@@ -120,12 +86,12 @@
           <text x="324" y="376" font-size="7">B0.06</text>
           <text x="493" y="280" transform="rotate(-90 493 280)">GAB. CENTRAL</text>
           <text x="605" y="380">SALA DE REUNIÕES</text>
-          <text x="715" y="310" transform="rotate(-90 715 310)">ESCADAS</text>
+          <text x="720" y="310" transform="rotate(-90 720 310)">ESCADAS / RECEÇÃO</text>
+          <text x="703" y="424" font-size="6.5">ENTRADA</text>
           <text x="756" y="182" font-size="6.5">ARR. 1</text>
           <text x="785" y="182" font-size="6.5">ARR. 2</text>
           <text x="830" y="182" font-size="7">GAB. 2.1</text>
           <text x="895" y="182" font-size="7">GAB. 2.2</text>
-          <text x="774" y="310" transform="rotate(-90 774 310)">RECEÇÃO</text>
           <text x="888" y="310">SALA DE AULA MAGNA</text>
         </g>
 
