@@ -21,23 +21,23 @@ const ROOMS_DATA = {
     edificio: "Edifício B",
     piso: "Piso 0",
     salas: {
-      sala1: {
-        id: "B0.01", nome: "Sala 1", funcao: "Gabinete", capacidade: 2, imagem: null, cor: "gabinete"
+      b07: {
+        id: "B0.7", funcao: "Sala do Diretor/a", capacidade: "2 / 3", imagem: "IMG/B0.7.jpg", cor: "gabinete"
       },
-      sala2: {
-        id: "B0.02", nome: "Sala 2", funcao: "Gabinete", capacidade: 2, imagem: null, cor: "gabinete"
+      b08: {
+        id: "B0.8", funcao: "Sala do Diretor/a", capacidade: "2 / 3", imagem: "IMG/B0.8.jpg", cor: "gabinete"
       },
-      hall: {
-        id: "B0.00", nome: "Átrio Central", funcao: "Circulação / zona de estar", capacidade: 30, imagem: null, cor: "circulacao"
+      openSpace: {
+        id: "B0.1", funcao: "Open Space do DFA", capacidade: "46", imagem: "IMG/OpenSpaceDoDFA_B0.1.jpg", cor: "circulacao"
       },
-      sala3: {
-        id: "B0.03", nome: "Sala de Apoio 1", funcao: "Arrumos", capacidade: 4, imagem: null, cor: "apoio"
+      b02: {
+        id: "B0.2", funcao: "Neste momento não tem nenhuma função.", capacidade: "2 / 3", imagem: "IMG/B0.2.jpg", cor: "apoio"
       },
-      sala4: {
-        id: "B0.04", nome: "Sala de Apoio 2", funcao: "Arrumos", capacidade: 4, imagem: null, cor: "apoio"
+      b03: {
+        id: "B0.3", funcao: "Zona do trabalho", capacidade: "2 / 3", imagem: "IMG/B0.3.jpg", cor: "apoio"
       },
-      sala5: {
-        id: "B0.05", nome: "Sala de Apoio 3", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio"
+      b04: {
+        id: "B0.4", funcao: "Sala de reuniões", capacidade: "2", imagem: null, cor: "apoio"
       },
       sala6: {
         id: "B0.06", nome: "Sala de Apoio 4", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio"

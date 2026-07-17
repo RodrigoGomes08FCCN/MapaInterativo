@@ -34,15 +34,15 @@
 
           <rect class="room room--circulacao" data-room="corredor_esquerdo" x="8" y="161" width="58" height="243" tabindex="0" role="button" aria-label="Corredor Exterior"/>
 
-          <rect class="room room--gabinete" data-room="sala1" x="133" y="161" width="51" height="62" tabindex="0" role="button" aria-label="Sala 1"/>
-          <rect class="room room--gabinete" data-room="sala2" x="184" y="161" width="55" height="62" tabindex="0" role="button" aria-label="Sala 2"/>
+          <rect class="room room--gabinete" data-room="b07" x="133" y="161" width="51" height="62" tabindex="0" role="button" aria-label="Sala 1"/>
+          <rect class="room room--gabinete" data-room="b08" x="184" y="161" width="55" height="62" tabindex="0" role="button" aria-label="Sala 2"/>
 
-          <polygon class="room room--circulacao" data-room="hall"
+          <polygon class="room room--circulacao" data-room="openSpace"
             points="66,161 133,161 133,223 239,223 239,161 522,161 522,181 465,181 465,404 353,404 353,342 133,342 133,404 66,404"
             tabindex="0" role="button" aria-label="Átrio Central"/>
 
-          <rect class="room room--apoio" data-room="sala3" x="133" y="342" width="52" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 1"/>
-          <rect class="room room--apoio" data-room="sala4" x="185" y="342" width="57" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 2"/>
+          <rect class="room room--apoio" data-room="b02" x="133" y="342" width="52" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 1"/>
+          <rect class="room room--apoio" data-room="b03" x="185" y="342" width="57" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 2"/>
           <rect class="room room--apoio" data-room="sala5" x="242" y="342" width="54" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 3"/>
           <rect class="room room--apoio" data-room="sala6" x="296" y="342" width="57" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 4"/>
 
@@ -77,13 +77,13 @@
         <!-- ============ RÓTULOS ============ -->
         <g class="room-label">
           <text x="37" y="285" transform="rotate(-90 37 285)">CORREDOR</text>
-          <text x="158" y="195">SALA 1</text>
-          <text x="211" y="195">SALA 2</text>
-          <text x="150" y="280" transform="rotate(-90 150 280)">ÁTRIO</text>
-          <text x="159" y="376" font-size="7">B0.03</text>
-          <text x="213" y="376" font-size="7">B0.04</text>
-          <text x="269" y="376" font-size="7">B0.05</text>
-          <text x="324" y="376" font-size="7">B0.06</text>
+          <text x="158" y="195">B0.7</text>
+          <text x="211" y="195">B0.8</text>
+          <text x="150" y="280" transform="rotate(-90 150 280)">OPEN SPACE</text>
+          <text x="159" y="376" font-size="7">B0.2</text>
+          <text x="213" y="376" font-size="7">B0.3</text>
+          <text x="269" y="376" font-size="7">B0.4</text>
+          <text x="324" y="376" font-size="7">B0.5</text>
           <text x="493" y="280" transform="rotate(-90 493 280)">GAB. CENTRAL</text>
           <text x="605" y="380">SALA DE REUNIÕES</text>
           <text x="720" y="310" transform="rotate(-90 720 310)">ESCADAS / RECEÇÃO</text>
@@ -292,7 +292,8 @@
       <dl class="detail-card__meta">
         <div class="detail-card__stat">
           <dt>Função</dt>
-          <dd id="detail-funcao"></dd>
+          <dd id="detail-funcao">
+          </dd>
         </div>
         <div class="detail-card__stat">
           <dt>Nº máx. lugares</dt>
