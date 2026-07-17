@@ -40,7 +40,7 @@ const ROOMS_DATA = {
         id: "B0.4", funcao: "Sala de reuniões", capacidade: "2", imagem: null, cor: "apoio"
       },
       sala6: {
-        id: "B0.06", nome: "Sala de Apoio 4", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio", email: "cabine1%40fct.pt"
+        id: "B0.06", nome: "Sala de Apoio 4", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio", email: "cabine1@fct.pt"
       },
       gabcentral: {
         id: "B0.07", nome: "Gabinete Central", funcao: "Gabinete", capacidade: 2, imagem: null, cor: "gabinete"
