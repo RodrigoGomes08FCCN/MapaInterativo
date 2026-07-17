@@ -31,7 +31,7 @@ const ROOMS_DATA = {
         id: "B0.1", funcao: "Open Space do DFA", capacidade: "46", imagem: "IMG/OpenSpaceDoDFA_B0.1.jpg", cor: "circulacao"
       },
       b02: {
-        id: "B0.2", funcao: "Neste momento não tem nenhuma função.", capacidade: "2 / 3", imagem: "IMG/B0.2.jpg", cor: "apoio"
+        id: "B0.2", funcao: "Neste momento não tem nenhuma função...", capacidade: "2 / 3", imagem: "IMG/B0.2.jpg", cor: "apoio"
       },
       b03: {
         id: "B0.3", funcao: "Zona do trabalho", capacidade: "2 / 3", imagem: "IMG/B0.3.jpg", cor: "apoio"
