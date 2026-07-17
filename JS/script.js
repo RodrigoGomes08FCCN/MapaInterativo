@@ -159,7 +159,7 @@ function renderDetail(roomKey) {
   }
 
   emailBtn.onclick = () => {
-    window.location.href = `mailto:${sala.email}?subject=Reserva`;
+    window.open("https://outlook.office.com/calendar/action/compose?to=cabine1%40fct.pt", "_blank");
   };
   document.getElementById("detail-capacidade").textContent =
     sala.capacidade === null || sala.capacidade === undefined
