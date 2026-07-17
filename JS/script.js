@@ -148,12 +148,25 @@ function renderDetail(roomKey) {
   document.getElementById("detail-id").textContent = sala.id;
   document.getElementById("detail-nome").textContent = sala.nome;
   document.getElementById("detail-funcao").textContent = sala.funcao;
+
+  const emailBtn = document.getElementById("detail-email");
+
+  if (sala.email) {
+    emailBtn.style.display = "inline-block";
+    emailBtn.href = `mailto:${sala.email}?subject=Contacto`;
+  } else {
+    emailBtn.style.display = "none";
+  }
+
+  emailBtn.onclick = () => {
+    window.location.href = `mailto:${sala.email}?subject=Reserva`;
+  };
   document.getElementById("detail-capacidade").textContent =
     sala.capacidade === null || sala.capacidade === undefined
       ? "—"
       : sala.capacidade === 0
-      ? "Sem lotação (staff)"
-      : `${sala.capacidade} pessoas`;
+        ? "Sem lotação (staff)"
+        : `${sala.capacidade} pessoas`;
 }
 
 function clearDetail() {

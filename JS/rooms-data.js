@@ -40,7 +40,7 @@ const ROOMS_DATA = {
         id: "B0.4", funcao: "Sala de reuniões", capacidade: "2", imagem: null, cor: "apoio"
       },
       sala6: {
-        id: "B0.06", nome: "Sala de Apoio 4", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio"
+        id: "B0.06", nome: "Sala de Apoio 4", funcao: "Sala de trabalho", capacidade: 6, imagem: null, cor: "apoio", email: "tiagovaz553@gmail.com"
       },
       gabcentral: {
         id: "B0.07", nome: "Gabinete Central", funcao: "Gabinete", capacidade: 2, imagem: null, cor: "gabinete"
