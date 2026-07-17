@@ -158,9 +158,10 @@ function renderDetail(roomKey) {
     emailBtn.style.display = "none";
   }
 
-  emailBtn.onclick = () => {
-    window.open('https://outlook.office.com/calendar/action/compose?to=${encodeURIComponent(sala.email)}', "_blank");
-  };
+  window.open(
+  `https://outlook.office.com/calendar/action/compose?to=${encodeURIComponent(sala.email)}`,
+  "_blank"
+);
   document.getElementById("detail-capacidade").textContent =
     sala.capacidade === null || sala.capacidade === undefined
       ? "—"
