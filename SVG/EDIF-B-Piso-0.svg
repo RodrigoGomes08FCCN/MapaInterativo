@@ -1,0 +1,96 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ viewBox="0 0 1075 322" preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,322.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+
+  <!-- 1. LINHAS PRETAS DA PLANTA (Fundo - Não Bloqueia Cliques) -->
+  <g id="desenho-planta" pointer-events="none">
+    <path d="M268 2983 c-17 -4 -18 -78 -18 -1379 0 -1179 2 -1377 14 -1390 11
+  -11 49 -14 170 -14 149 0 156 1 156 20 0 19 -7 20 -150 20 l-150 0 0 595 0
+  595 360 0 360 0 0 -595 0 -595 -45 0 c-38 0 -45 -3 -45 -20 0 -20 7 -20 3345
+  -20 3324 0 3345 0 3345 20 0 18 -8 20 -152 22 l-153 3 -3 638 -2 637 170 0
+  170 0 0 25 0 25 -170 0 -170 0 0 405 0 405 -65 0 c-58 0 -65 -2 -65 -20 0 -17
+  7 -20 45 -20 l45 0 0 -335 0 -335 -45 0 c-38 0 -45 -3 -45 -20 0 -17 7 -20 45
+  -20 l45 0 0 -695 0 -695 -920 0 -920 0 0 535 0 535 259 0 c227 0 260 2 265 16
+  3 9 6 81 6 160 l0 144 490 0 c483 0 490 0 490 20 0 17 -7 20 -45 20 l-45 0 0
+  329 0 330 43 3 c34 2 42 7 42 23 0 20 -8 20 -742 23 l-743 2 0 179 c0 160 -2
+  180 -18 194 -16 15 -55 17 -335 17 l-317 0 0 -25 c0 -14 -4 -25 -10 -25 -7 0
+  -10 -420 -10 -1240 l0 -1240 -610 0 -610 0 0 338 c0 326 -1 338 -20 355 -19
+  16 -100 17 -1240 17 l-1220 0 0 635 0 635 600 0 600 0 0 360 0 360 2810 0
+  2810 0 0 -350 c-1 -218 -4 -350 -10 -350 -12 0 -13 -32 -2 -45 4 -6 6 -148 4
+  -317 l-3 -307 -32 -3 c-21 -2 -33 -9 -35 -20 -3 -15 4 -18 32 -18 l36 0 0
+  -445 c0 -438 0 -445 20 -445 19 0 20 7 20 105 l0 105 258 0 c305 0 329 5 404
+  82 79 82 78 68 78 724 0 512 -2 572 -16 578 -9 3 -173 6 -365 6 l-349 0 0 140
+  0 140 345 0 345 0 0 -63 c0 -36 5 -68 12 -75 9 -9 227 -12 920 -12 l908 0 0
+  -543 c0 -299 3 -781 7 -1070 l6 -527 -1276 0 -1277 0 0 110 c0 103 -1 110 -20
+  110 -19 0 -20 -7 -20 -130 l0 -130 1340 0 c1333 0 1340 0 1340 20 0 14 -7 20
+  -23 20 l-24 0 -6 593 c-4 325 -7 816 -7 1090 l0 497 -235 0 -235 0 -2 288 -3
+  287 -4860 1 c-2673 1 -4868 0 -4877 -3z m742 -518 l0 -475 -360 0 -360 0 0
+  475 0 475 360 0 360 0 0 -475z m580 135 l0 -340 -270 0 -270 0 0 340 0 340
+  270 0 270 0 0 -340z m620 0 l0 -340 -290 0 -290 0 0 340 0 340 290 0 290 0 0
+  -340z m6030 150 l0 -190 -165 0 -165 0 0 190 0 190 165 0 165 0 0 -190z m360
+  0 l0 -190 -160 0 -160 0 0 190 0 190 160 0 160 0 0 -190z m620 -75 l0 -265
+  -290 0 -290 0 0 265 0 265 290 0 290 0 0 -265z m750 0 l0 -265 -355 0 -355 0
+  0 265 0 265 355 0 355 0 0 -265z m-4570 -120 c0 -103 -4 -165 -10 -165 -6 0
+  -10 -30 -10 -70 l0 -70 -295 0 -295 0 0 235 0 235 305 0 305 0 0 -165z m510
+  -555 l0 -330 -245 0 -245 0 0 330 0 330 245 0 245 0 0 -330z m889 0 l-1 -330
+  -424 0 -424 0 0 330 0 330 425 0 425 0 -1 -330z m-1779 -226 c0 -364 2 -438
+  14 -450 12 -11 50 -14 180 -14 l166 0 0 -535 0 -535 -295 0 -295 0 0 985 0
+  985 115 0 115 0 0 -436z m360 166 l0 -270 -160 0 -160 0 0 270 0 270 160 0
+  160 0 0 -270z m3220 -135 l0 -395 -350 0 -350 0 0 303 c0 167 3 345 6 395 l7
+  92 343 0 344 0 0 -395z m-7970 -95 l0 -240 -170 0 -170 0 0 240 0 240 170 0
+  170 0 0 -240z m380 0 l0 -240 -170 0 -170 0 0 240 0 240 170 0 170 0 0 -240z
+  m4370 -220 l0 -140 -160 0 -160 0 0 140 0 140 160 0 160 0 0 -140z m530 0 l0
+  -140 -245 0 -245 0 0 140 0 140 245 0 245 0 0 -140z m2690 -262 c0 -79 -4
+  -159 -10 -178 -13 -47 -63 -106 -113 -133 -40 -21 -56 -22 -309 -25 l-268 -3
+  0 240 0 241 350 0 350 0 0 -142z m-7000 -653 l0 -335 -275 0 -275 0 0 335 0
+  335 275 0 275 0 0 -335z m640 0 l0 -335 -300 0 -300 0 0 335 0 335 300 0 300
+  0 0 -335z m600 0 l0 -335 -280 0 -280 0 0 335 0 335 280 0 280 0 0 -335z m648
+  3 l-3 -333 -302 -3 -303 -2 0 335 0 335 305 0 305 0 -2 -332z"/>
+  </g>
+
+  <!-- 2. SALAS CLICÁVEIS (Camada Superior) -->
+  <g id="salas-clicaveis" style="pointer-events: all; cursor: pointer;">
+    <rect class="room room--gabinete" data-room="b07" x="295" y="1990" width="720" height="950"></rect>
+    <rect class="room room--gabinete" data-room="b07_ext" x="250" y="1450" width="800" height="500"></rect>
+    <rect class="room room--gabinete" data-room="b08" x="1050" y="2250" width="550" height="720"></rect>
+    <rect class="room room--gabinete" data-room="b08_ext" x="1600" y="2250" width="620" height="720"></rect>
+    <rect class="room room--apoio" data-room="b02" x="1050" y="250" width="550" height="670"></rect>
+    <rect class="room room--apoio" data-room="b03" x="1630" y="250" width="600" height="670"></rect>
+    <rect class="room room--apoio" data-room="b04" x="2280" y="250" width="560" height="670"></rect>
+    <rect class="room room--apoio" data-room="b04_ext" x="2850" y="250" width="650" height="670"></rect>
+
+    <!-- Open Space -->
+    <rect class="room room--circulacao" data-room="openSpace" x="2250" y="2240" width="2500" height="700"></rect>
+    <rect class="room room--circulacao" data-room="openSpace" x="1050" y="950" width="3730" height="1280"></rect>
+    <rect class="room room--circulacao" data-room="openSpace" x="3530" y="250" width="1250" height="700"></rect>
+
+    <!-- Reuniões -->
+    <rect class="room room--reuniao" data-room="reunioes" x="4780" y="2250" width="640" height="480"></rect>
+    <rect class="room room--reuniao" data-room="reunioes" x="5050" y="1350" width="330" height="850"></rect>
+    <rect class="room room--reuniao" data-room="reunioes" x="5400" y="1650" width="520" height="700"></rect>
+    <rect class="room room--reuniao" data-room="reunioes" x="5400" y="1350" width="540" height="280"></rect>
+    <rect class="room room--reuniao" data-room="reunioes" x="5950" y="1650" width="850" height="700"></rect>
+    <rect class="room room--reuniao" data-room="reunioes" x="5400" y="220" width="1900" height="1100"></rect>
+    <rect class="room room--reuniao" data-room="reunioes" x="5950" y="1330" width="1330" height="300"></rect>
+
+    <!-- Outros -->
+    <rect class="room room--circulacao" data-room="recepcao" x="7300" y="220" width="580" height="1300"></rect>
+    <rect class="room room--aula" data-room="aula_magna" x="7900" y="2550" width="700" height="400"></rect>
+
+    <!-- Estúdio Anexos -->
+    <rect class="room room--estudio" data-room="estudio_anexo1" x="8630" y="2400" width="600" height="550"></rect>
+    <rect class="room room--estudio" data-room="estudio_anexo2" x="9260" y="2400" width="720" height="550"></rect>
+
+    <!-- Estúdio Principal -->
+    <rect class="room room--estudio" data-room="estudio" x="7900" y="1400" width="700" height="800"></rect>
+    <rect class="room room--estudio" data-room="estudio" x="7900" y="850" width="700" height="550"></rect>
+    <rect class="room room--estudio" data-room="estudio" x="7900" y="230" width="2550" height="620"></rect>
+    <rect class="room room--estudio" data-room="estudio" x="8610" y="850" width="1850" height="1550"></rect>
+  </g>
+
+</g>
+</svg>

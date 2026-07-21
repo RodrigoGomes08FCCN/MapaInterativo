@@ -1,315 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mapa Interativo — Edifício B · Piso 0</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="CSS/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Interativo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
+
 <body>
 
-<div id="header-slot"></div>
+  <div id="header-slot"></div>
 
-<main class="app">
+  <main class="app">
 
-  <section class="map-panel">
-    <div class="map-panel__heading">
-      <h1 id="map-heading-title">Edifício B — Piso 0</h1>
-      <span class="map-panel__hint">Clica numa divisória para veres os detalhes →</span>
-    </div>
+    <section class="map-panel">
 
-    <div id="floor-empty-msg" style="display:none; font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-soft); padding: 40px 0; text-align:center;">
-      Ainda não tenho a planta deste piso. Manda-ma e adiciono-a ao mapa.
-    </div>
-
-    <div class="map-frame">
-      <svg id="floor-svg" viewBox="0 130 995 300" xmlns="http://www.w3.org/2000/svg" role="group" aria-label="Planta interativa">
-
-        <g class="floor-group is-active" id="fg-B-0">
-
-        <!-- ============ SALAS (áreas clicáveis) ============ -->
-        <g class="floor" id="floor-B-0">
-
-          <rect class="room room--circulacao" data-room="corredor_esquerdo" x="8" y="161" width="58" height="243" tabindex="0" role="button" aria-label="Corredor Exterior"/>
-
-          <rect class="room room--gabinete" data-room="b07" x="133" y="161" width="51" height="62" tabindex="0" role="button" aria-label="Sala 1"/>
-          <rect class="room room--gabinete" data-room="b08" x="184" y="161" width="55" height="62" tabindex="0" role="button" aria-label="Sala 2"/>
-
-          <polygon class="room room--circulacao" data-room="openSpace"
-            points="66,161 133,161 133,223 239,223 239,161 522,161 522,181 465,181 465,404 353,404 353,342 133,342 133,404 66,404"
-            tabindex="0" role="button" aria-label="Átrio Central"/>
-
-          <rect class="room room--apoio" data-room="b02" x="133" y="342" width="52" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 1"/>
-          <rect class="room room--apoio" data-room="b03" x="185" y="342" width="57" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 2"/>
-          <rect class="room room--apoio" data-room="sala5" x="242" y="342" width="54" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 3"/>
-          <rect class="room room--apoio" data-room="sala6" x="296" y="342" width="57" height="62" tabindex="0" role="button" aria-label="Sala de Apoio 4"/>
-
-          <rect class="room room--gabinete" data-room="gabcentral" x="465" y="181" width="57" height="223" tabindex="0" role="button" aria-label="Gabinete Central"/>
-
-          <rect class="room room--estudio" data-room="estudio" x="525" y="214" width="165" height="193" tabindex="0" role="button" aria-label="Sala do Estúdio"/>
-
-          <rect class="room room--circulacao" data-room="escadas" x="688" y="211" width="52" height="193" tabindex="0" role="button" aria-label="Escadas e Receção"/>
-          <rect class="room room--apoio" data-room="entrada" x="688" y="404" width="30" height="34" tabindex="0" role="button" aria-label="Entrada"/>
-
-          <rect class="room room--apoio" data-room="arrumo1" x="742" y="161" width="29" height="50" tabindex="0" role="button" aria-label="Arrumo 1"/>
-          <rect class="room room--apoio" data-room="arrumo2" x="771" y="161" width="28" height="50" tabindex="0" role="button" aria-label="Arrumo 2"/>
-          <rect class="room room--gabinete" data-room="gab3" x="799" y="161" width="63" height="50" tabindex="0" role="button" aria-label="Gabinete 2.1"/>
-          <rect class="room room--gabinete" data-room="gab4" x="862" y="161" width="66" height="50" tabindex="0" role="button" aria-label="Gabinete 2.2"/>
-
-          <rect class="room room--aula" data-room="aula_magna" x="745" y="211" width="225" height="193" tabindex="0" role="button" aria-label="Sala de Aula Magna"/>
-
-        </g>
-
-        <!-- ============ PAREDES + MOBILIÁRIO (traçado exato exportado do Canva) ============ -->
-        <g class="deco" aria-hidden="true">
-          <path d="M 744.00 207.05 L 744.00 344.00 L 664.17 344.00 C620.26,344.00 584.03,343.70 583.67,343.33 C583.30,342.97 583.00,339.37 583.00,335.33 C583.00,329.48 583.30,328.00 584.50,328.00 C585.68,328.00 586.00,329.39 586.00,334.50 L 586.00 341.00 L 742.17 341.00 L 741.48 275.75 C741.10,239.86 740.69,210.39 740.57,210.26 C740.45,210.12 715.74,209.71 685.67,209.34 L 631.00 208.67 L 631.00 250.15 C631.00,285.86 631.00,292.89 627.53,296.92 C626.65,297.94 625.56,298.76 624.19,299.81 C620.72,302.46 620.39,302.51 603.38,302.81 L 586.09 303.13 L 585.80 309.23 C585.61,313.09 585.03,315.50 584.22,315.76 C583.20,316.10 582.96,310.64 583.04,288.84 C583.14,261.93 583.10,261.49 581.07,261.18 C578.48,260.78 578.33,259.00 580.88,259.00 C583.69,259.00 584.03,253.62 583.89,211.75 L 583.77 175.00 L 239.04 175.00 L 238.77 196.25 L 238.50 217.50 L 202.25 217.76 L 166.00 218.02 L 166.00 296.99 L 241.25 297.24 L 316.50 297.50 L 316.77 318.75 L 317.04 340.00 L 392.99 340.00 L 393.50 185.50 L 412.87 185.23 C426.31,185.04 432.66,185.31 433.62,186.10 C434.64,186.94 435.00,190.10 435.00,198.12 L 435.00 209.00 L 480.58 209.00 C516.60,209.00 526.08,209.26 525.76,210.25 C525.53,210.94 524.13,211.64 522.65,211.82 L 519.96 212.14 L 520.23 232.32 L 520.50 252.50 L 523.27 252.82 C524.79,252.99 525.77,253.56 525.46,254.07 C525.12,254.61 512.57,255.00 495.48,255.00 L 466.07 255.00 L 465.79 264.75 L 465.50 274.50 L 450.36 274.78 C435.67,275.04 435.20,275.12 434.62,277.28 C433.84,280.19 433.85,334.83 434.63,337.75 L 435.23 340.00 L 547.06 340.00 L 546.83 297.50 L 546.59 255.00 L 543.79 255.00 C540.19,255.00 540.15,253.23 543.75,252.82 L 546.50 252.50 L 547.04 212.00 L 544.02 212.00 C542.00,212.00 541.00,211.50 541.00,210.50 C541.00,209.42 542.11,209.00 544.98,209.00 L 548.97 209.00 L 549.50 258.50 L 559.50 258.97 L 569.50 259.43 L 559.25 259.97 L 549.00 260.50 L 548.21 340.00 L 558.11 340.00 C566.24,340.00 568.00,340.27 568.00,341.50 C568.00,342.83 544.79,342.98 362.83,342.75 C199.77,342.55 157.58,342.24 157.25,341.25 C156.98,340.43 157.90,340.00 159.92,340.00 L 163.01 340.00 L 162.98 257.50 L 162.96 175.00 L 119.00 175.00 L 119.00 340.00 L 128.08 340.00 C134.90,340.00 137.06,340.31 136.75,341.25 C136.19,342.95 119.35,343.53 117.40,341.92 C116.22,340.94 116.00,327.74 116.00,257.96 C116.00,212.42 116.27,174.45 116.61,173.58 C117.16,172.14 144.50,172.00 416.36,172.00 L 715.50 172.00 L 715.50 206.50 L 729.75 206.78 ZM 395.00 188.00 L 395.00 340.00 L 432.00 340.00 L 432.00 275.00 L 421.62 275.00 C414.05,275.00 410.94,274.63 410.11,273.63 C409.30,272.66 409.05,264.24 409.23,244.88 L 409.50 217.50 L 420.75 217.22 L 432.00 216.93 L 432.00 188.00 ZM 586.69 268.35 C587.06,268.73 596.63,268.92 607.94,268.77 L 628.50 268.50 L 628.77 239.25 L 629.03 210.00 L 586.00 210.00 L 586.00 238.83 C586.00,254.69 586.31,267.98 586.69,268.35 ZM 466.68 252.35 C467.06,252.73 478.65,252.91 492.43,252.77 L 517.50 252.50 L 518.04 212.00 L 466.00 212.00 L 466.00 231.83 C466.00,242.74 466.31,251.97 466.68,252.35 ZM 278.00 299.00 L 278.00 340.00 L 315.00 340.00 L 315.00 299.00 ZM 202.00 299.00 L 202.00 340.00 L 238.00 340.00 L 238.00 299.00 ZM 201.00 175.00 L 201.00 215.05 L 236.50 214.50 L 236.50 194.75 C236.50,183.89 236.16,175.00 235.75,175.00 ZM 241.00 299.00 L 241.00 340.00 L 275.00 340.00 L 275.00 299.00 ZM 669.67 206.33 C670.03,206.70 679.71,207.00 691.17,207.00 L 712.00 207.00 L 712.00 175.00 L 669.00 175.00 L 669.00 190.33 C669.00,198.77 669.30,205.97 669.67,206.33 ZM 166.00 299.00 L 166.00 340.00 L 199.00 340.00 L 199.00 299.00 ZM 165.69 214.36 C166.07,214.74 173.38,214.93 181.94,214.77 L 197.50 214.50 L 197.77 194.75 L 198.04 175.00 L 165.00 175.00 L 165.00 194.33 C165.00,204.97 165.31,213.98 165.69,214.36 ZM 586.00 271.00 L 586.00 300.00 L 619.93 300.00 L 623.44 296.92 C627.70,293.18 628.99,288.98 628.99,278.75 L 629.00 271.00 ZM 434.64 252.22 C434.92,252.68 441.53,252.93 449.33,252.78 L 463.50 252.50 L 463.77 232.25 L 464.04 212.00 L 449.63 212.00 C435.49,212.00 435.21,212.04 434.65,214.26 C433.94,217.08 433.93,251.08 434.64,252.22 ZM 631.65 200.27 L 632.29 207.05 L 649.40 206.77 L 666.50 206.50 L 667.05 175.00 L 631.00 175.00 L 631.01 184.25 C631.01,189.34 631.30,196.55 631.65,200.27 ZM 412.00 219.00 L 412.00 253.00 L 432.00 253.00 L 432.00 219.00 ZM 434.55 269.21 L 435.16 272.00 L 464.00 272.00 L 464.00 255.00 L 434.31 255.00 L 434.12 260.71 C434.02,263.86 434.21,267.68 434.55,269.21 ZM 586.84 202.43 L 587.20 207.00 L 607.60 207.00 C619.57,207.00 628.00,206.61 628.00,206.07 C628.00,205.55 626.76,204.99 625.25,204.82 C622.74,204.53 622.52,204.18 622.79,200.78 L 623.08 197.06 L 605.18 197.05 C595.34,197.05 587.10,197.23 586.88,197.45 C586.66,197.68 586.64,199.92 586.84,202.43 ZM 586.70 194.37 C587.09,194.76 591.03,194.95 595.45,194.79 L 603.50 194.50 L 603.79 184.75 L 604.07 175.00 L 586.00 175.00 L 586.00 184.33 C586.00,189.47 586.32,193.98 586.70,194.37 ZM 412.00 255.00 L 412.00 272.00 L 432.00 272.00 L 432.00 255.00 ZM 607.00 175.00 L 607.00 195.08 L 614.75 194.79 L 622.50 194.50 L 622.79 184.75 L 623.07 175.00 ZM 566.00 296.00 C566.00,314.00 565.79,317.00 564.50,317.00 C563.34,317.00 563.00,315.69 563.00,311.20 C563.00,308.01 562.46,304.86 561.80,304.20 C560.87,303.27 560.87,302.73 561.80,301.80 C562.61,300.99 563.00,296.42 563.00,287.80 C563.00,277.09 563.24,275.00 564.50,275.00 C565.79,275.00 566.00,278.00 566.00,296.00 ZM 625.67 201.33 C627.57,203.23 628.00,200.84 628.00,188.50 C628.00,177.17 627.76,175.00 626.50,175.00 C625.24,175.00 625.00,177.09 625.00,187.83 C625.00,194.89 625.30,200.97 625.67,201.33 Z" transform="matrix(1.446,0,0,1.446,-103.66,-89.64)" fill="#142433" stroke="none"/>
-        </g>
-
-        <!-- ============ PAREDES ADICIONAIS (Corredor Exterior + Entrada, não presentes no ficheiro original) ============ -->
-        <path class="walls" d="
-          M8,161 L66,161
-          M8,161 L8,404 L66,404
-          M718,404 L718,438 L688,438 L688,404
-        "/>
-
-        <!-- ============ RÓTULOS ===fkvhdjvgjd========= -->
-        <g class="room-label">
-          <text x="37" y="285" transform="rotate(-90 37 285)">CORREDOR</text>
-          <text x="158" y="195">B0.7</text>
-          <text x="211" y="195">B0.8</text>
-          <text x="150" y="280" transform="rotate(-90 150 280)">OPEN SPACE</text>
-          <text x="159" y="376" font-size="7">B0.2</text>
-          <text x="213" y="376" font-size="7">B0.3</text>
-          <text x="269" y="376" font-size="7">B0.4</text>
-          <text x="324" y="376" font-size="7">B0.5</text>
-          <text x="493" y="280" transform="rotate(-90 493 280)">GAB. CENTRAL</text>
-          <text x="605" y="380">SALA DE REUNIÕES</text>
-          <text x="720" y="310" transform="rotate(-90 720 310)">ESCADAS / RECEÇÃO</text>
-          <text x="703" y="424" font-size="6.5">ENTRADA</text>
-          <text x="756" y="182" font-size="6.5">ARR. 1</text>
-          <text x="785" y="182" font-size="6.5">ARR. 2</text>
-          <text x="830" y="182" font-size="7">GAB. 2.1</text>
-          <text x="895" y="182" font-size="7">GAB. 2.2</text>
-          <text x="888" y="310">SALA DE AULA MAGNA</text>
-        </g>
-
-        </g>
-        <!-- ===================================================== -->
-        <!-- PISO 1 (Edifício B) — planta estrutural, sem mobiliário -->
-        <!-- ===================================================== -->
-        <g class="floor-group" id="fg-B-1">
-          <g class="floor" id="floor-B-1">
-          <rect class="room room--gabinete" data-room="b1_t1" x="100" y="245" width="25" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t2" x="125" y="245" width="23" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t3" x="148" y="245" width="45" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t4" x="193" y="245" width="50" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t5" x="243" y="245" width="46" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t6" x="289" y="245" width="45" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t7" x="334" y="245" width="46" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t8" x="380" y="245" width="74" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t9" x="454" y="245" width="47" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t10" x="501" y="245" width="95" height="67" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t11" x="596" y="245" width="65" height="67" tabindex="0" role="button"/>
-          <rect class="room room--circulacao" data-room="b1_torre_a" x="661" y="199" width="73" height="113" tabindex="0" role="button"/>
-          <rect class="room room--circulacao" data-room="b1_torre_b" x="734" y="199" width="84" height="113" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_t13" x="818" y="247" width="34" height="65" tabindex="0" role="button"/>
-          <rect class="room room--circulacao" data-room="b1_corredor" x="100" y="312" width="752" height="29" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b1" x="101" y="341" width="47" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b2" x="148" y="341" width="48" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b3" x="196" y="341" width="46" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b4" x="242" y="341" width="47" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b5" x="289" y="341" width="93" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b6" x="382" y="341" width="50" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b7" x="432" y="341" width="47" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b8" x="479" y="341" width="45" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b9" x="524" y="341" width="48" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b10" x="572" y="341" width="46" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b11" x="618" y="341" width="46" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b12" x="664" y="341" width="46" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b13" x="710" y="341" width="48" height="57" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="b1_b14" x="758" y="341" width="94" height="57" tabindex="0" role="button"/>
-          </g>
-          <path class="walls" d="
-            M100,245 L661,245
-            M818,247 L852,247
-            M100,245 L100,398
-            M852,247 L852,398
-            M100,398 L852,398
-            M661,199 L661,312
-            M734,199 L734,312
-            M818,199 L818,312
-            M661,199 L818,199
-            M818,312 L818,398
-            M100,312 L852,312
-            M100,341 L852,341
-            M125,245 L125,312
-            M148,245 L148,398
-            M193,245 L193,312
-            M243,245 L243,312
-            M289,245 L289,398
-            M334,245 L334,312
-            M380,245 L380,312
-            M454,245 L454,312
-            M501,245 L501,312
-            M596,245 L596,312
-            M101,341 L101,398
-            M196,341 L196,398
-            M242,341 L242,398
-            M382,341 L382,398
-            M432,341 L432,398
-            M479,341 L479,398
-            M524,341 L524,398
-            M572,341 L572,398
-            M618,341 L618,398
-            M664,341 L664,398
-            M710,341 L710,398
-            M758,245 L758,398
-          "/>
-          <g class="room-label">
-            <text x="380" y="282" font-size="10">EDIF B — PISO 1</text>
-            <text x="960" y="330" font-size="9" transform="rotate(90 960 330)">TORRE</text>
-          </g>
-        </g>
-
-        <!-- ===================================================== -->
-        <!-- EDIFÍCIO A — planta estrutural, sem mobiliário          -->
-        <!-- ===================================================== -->
-        <g class="floor-group" id="fg-A-0">
-          <g class="floor" id="floor-A-0">
-          <rect class="room room--gabinete" data-room="a_tl1" x="100" y="150" width="50" height="71" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tl2" x="150" y="150" width="49" height="71" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tl3" x="199" y="150" width="50" height="71" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tl4" x="249" y="150" width="69" height="71" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tm1" x="320" y="150" width="46" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tm2" x="366" y="150" width="50" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tm3" x="416" y="150" width="46" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tm4" x="462" y="150" width="48" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr1" x="560" y="150" width="47" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr2" x="607" y="150" width="49" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr3" x="656" y="150" width="70" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr4" x="726" y="150" width="50" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr5" x="776" y="150" width="47" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr6" x="823" y="150" width="36" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr7" x="859" y="150" width="28" height="52" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_tr8" x="887" y="150" width="35" height="52" tabindex="0" role="button"/>
-          <rect class="room room--circulacao" data-room="a_hall" x="100" y="221" width="220" height="203" tabindex="0" role="button"/>
-          <rect class="room room--circulacao" data-room="a_hall" x="320" y="202" width="93" height="222" tabindex="0" role="button"/>
-          <rect class="room room--circulacao" data-room="a_hall" x="413" y="202" width="412" height="166" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br1" x="413" y="368" width="51" height="56" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br2" x="464" y="368" width="48" height="56" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br3" x="512" y="368" width="48" height="56" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br4" x="560" y="368" width="47" height="56" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br5" x="607" y="368" width="49" height="56" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br6" x="656" y="368" width="69" height="56" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br7" x="725" y="368" width="51" height="56" tabindex="0" role="button"/>
-          <rect class="room room--gabinete" data-room="a_br8" x="776" y="368" width="47" height="56" tabindex="0" role="button"/>
-          <rect class="room room--apoio" data-room="a_arrumo1" x="56" y="269" width="44" height="84" tabindex="0" role="button"/>
-          <rect class="room room--apoio" data-room="a_arrumo2" x="56" y="353" width="44" height="71" tabindex="0" role="button"/>
-          <rect class="room room--apoio" data-room="a_mid1" x="248" y="265" width="35" height="44" tabindex="0" role="button"/>
-          <rect class="room room--apoio" data-room="a_mid2" x="283" y="265" width="34" height="44" tabindex="0" role="button"/>
-          <rect class="room room--apoio" data-room="a_mid3" x="248" y="309" width="69" height="42" tabindex="0" role="button"/>
-          <rect class="room room--apoio" data-room="a_mid4" x="248" y="351" width="69" height="46" tabindex="0" role="button"/>
-          <rect class="room room--circulacao" data-room="a_direita" x="822" y="202" width="101" height="222" tabindex="0" role="button"/>
-          </g>
-          <path class="walls" d="
-            M100,150 L519,150
-            M542,150 L924,150
-            M100,150 L100,424
-            M55,269 L55,424
-            M55,269 L100,269
-            M55,353 L100,353
-            M320,150 L320,424
-            M150,150 L150,221
-            M199,150 L199,221
-            M249,150 L249,221
-            M100,221 L320,221
-            M413,368 L825,368
-            M413,368 L413,424
-            M100,424 L250,424
-            M317,424 L924,424
-            M924,150 L924,424
-            M822,150 L822,424
-            M413,202 L825,202
-            M413,202 L413,368
-            M366,150 L366,202
-            M416,150 L416,202
-            M462,150 L462,202
-            M510,150 L510,202
-            M560,150 L560,424
-            M607,150 L607,424
-            M656,150 L656,202
-            M656,368 L656,424
-            M726,150 L726,202
-            M776,150 L776,424
-            M823,150 L823,202
-            M859,150 L859,202
-            M887,150 L887,202
-            M464,368 L464,424
-            M512,368 L512,424
-            M725,368 L725,424
-            M248,265 L317,265
-            M283,265 L283,309
-            M248,309 L317,309
-            M248,351 L317,351
-            M822,225 L923,225
-          "/>
-          <g class="room-label">
-            <text x="480" y="282" font-size="10">EDIFÍCIO A</text>
-          </g>
-        </g>
-
-      </svg>
-    </div>
-
-    <div class="map-panel__hint" style="margin-top:8px; display:block;">
-      * Reconstrução baseada na planta real fornecida — a imagem original tem resolução baixa
-      e alguns rótulos de texto não são 100% legíveis. Confirma/ajusta nomes em <code>JS/rooms-data.js</code>.
-    </div>
-
-    <div class="legend">
-      <span class="legend__item"><i class="legend__swatch legend__swatch--gabinete"></i>Gabinetes</span>
-      <span class="legend__item"><i class="legend__swatch legend__swatch--circulacao"></i>Circulação</span>
-      <span class="legend__item"><i class="legend__swatch legend__swatch--apoio"></i>Apoio / arrumos</span>
-      <span class="legend__item"><i class="legend__swatch legend__swatch--reuniao"></i>Reuniões</span>
-      <span class="legend__item"><i class="legend__swatch legend__swatch--aula"></i>Sala de aula</span>
-    </div>
-  </section>
-
-  <aside class="detail-panel" aria-live="polite">
-    <div class="detail-panel__empty" id="detail-empty">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21V9.5L12 3l9 6.5V21h-6v-7H9v7H3Z" stroke-linejoin="round"/></svg>
-      Seleciona uma divisória na planta<br>para veres a ficha da sala.
-    </div>
-
-    <div class="detail-card" id="detail-card">
-      <div class="detail-card__image" id="detail-image"><span></span></div>
-      <div>
-        <div class="detail-card__id" id="detail-id"></div>
-        <h2 class="detail-card__name" id="detail-nome"></h2>
+      <div class="map-panel__heading">
+        <h1 id="map-heading-title">Mapa Interativo</h1>
+        <span class="map-panel__hint">
+          Clica numa divisória para veres os detalhes →
+        </span>
       </div>
-      <dl class="detail-card__meta">
-        <div class="detail-card__stat">
-          <dt>Função</dt>
-          <dd id="detail-funcao">
-          </dd>
+
+      <div
+        id="floor-empty-msg"
+        style="display:none; font-family: var(--font-mono); font-size:0.85rem; color:var(--ink-soft); padding:40px 0; text-align:center;">
+        Ainda não tenho a planta deste piso. Manda-ma e adiciono-a ao mapa.
+      </div>
+
+      <div class="map-frame">
+
+        <!-- O SVG será carregado aqui pelo JavaScript -->
+        <div id="svg-container"></div>
+
+      </div>
+
+      <div class="map-panel__hint" style="margin-top:8px; display:block;">
+        * Reconstrução baseada na planta real fornecida. Confirma/ajusta nomes em
+        <code>JS/rooms-data.js</code>.
+      </div>
+
+      <div class="legend">
+
+        <span class="legend__item">
+          <i class="legend__swatch legend__swatch--gabinete"></i>
+          Gabinetes
+        </span>
+
+        <span class="legend__item">
+          <i class="legend__swatch legend__swatch--circulacao"></i>
+          Circulação
+        </span>
+
+        <span class="legend__item">
+          <i class="legend__swatch legend__swatch--apoio"></i>
+          Apoio / Arrumos
+        </span>
+
+        <span class="legend__item">
+          <i class="legend__swatch legend__swatch--reuniao"></i>
+          Reuniões
+        </span>
+
+        <span class="legend__item">
+          <i class="legend__swatch legend__swatch--aula"></i>
+          Sala de aula
+        </span>
+
+      </div>
+
+    </section>
+
+    <aside class="detail-panel" aria-live="polite">
+
+      <div class="detail-panel__empty" id="detail-empty">
+
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M3 21V9.5L12 3l9 6.5V21h-6v-7H9v7H3Z" stroke-linejoin="round" />
+        </svg>
+
+        Seleciona uma divisória na planta<br>
+        para veres a ficha da sala.
+
+      </div>
+
+      <div class="detail-card" id="detail-card">
+
+        <div class="detail-card__image" id="detail-image">
+          <span></span>
         </div>
-        <div class="detail-card__stat">
-          <dt>Nº máx. lugares</dt>
-          <dd id="detail-capacidade"></dd>
+
+        <div>
+          <div class="detail-card__id" id="detail-id"></div>
+          <h2 class="detail-card__name" id="detail-nome"></h2>
         </div>
-      </dl>
-      <button class="detail-card__close" id="detail-email">Rezervar</button>
-      <button class="detail-card__close" id="detail-close">Fechar ficha</button>
-    </div>
-  </aside>
 
-</main>
+        <dl class="detail-card__meta">
 
-<div id="footer-slot"></div>
+          <div class="detail-card__stat">
+            <dt>Função</dt>
+            <dd id="detail-funcao"></dd>
+          </div>
 
-<script src="JS/rooms-data.js"></script>
-<script src="JS/script.js"></script>
+          <div class="detail-card__stat">
+            <dt>Nº máx. lugares</dt>
+            <dd id="detail-capacidade"></dd>
+          </div>
+
+        </dl>
+
+        <button class="detail-card__close" id="detail-email">
+          Reservar
+        </button>
+
+        <button class="detail-card__close" id="detail-close">
+          Fechar ficha
+        </button>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+  <div id="footer-slot"></div>
+
+  <script src="JS/rooms-data.js"></script>
+  <script src="JS/script.js"></script>
+
 </body>
+
 </html>

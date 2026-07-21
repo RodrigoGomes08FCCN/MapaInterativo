@@ -1,29 +1,13 @@
 /**
  * script.js
  * ---------------------------------------------------------------
- * 1) Carrega header/footer de /INCLUDES/*.html para dentro da página.
- * 2) Liga os cliques de cada divisória do SVG à ficha de detalhe,
- *    usando os dados definidos em JS/rooms-data.js.
- *
- * NOTA IMPORTANTE sobre os includes:
- * Os browsers bloqueiam "fetch" de ficheiros locais abertos em
- * file:///. Para os includes funcionarem, corre o projeto com um
- * servidor local (ex.: extensão "Live Server" do VS Code, ou
- * `python3 -m http.server` na pasta do projeto e abrir
- * http://localhost:8000/index.html).
+ * Carrega dinamicamente os ficheiros da pasta SVG/ conforme
+ * o Edifício e o Piso selecionados.
  */
 
 const CURRENT = { edificio: "B", piso: "0" };
 
-const FLOOR_VIEWBOX = {
-  "B-0": "120 60 1100 620",
-  "B-1": "40 130 900 300",
-  "A-0": "20 130 960 320"
-};
-
-/* -------------------------------------------------------------- */
-/* 1) Includes (header / footer)                                   */
-/* -------------------------------------------------------------- */
+/* 1) Função para carregar os ficheiros de suporte (Header/Footer) */
 async function loadInclude(targetSelector, path) {
   const target = document.querySelector(targetSelector);
   if (!target) return;
@@ -32,76 +16,116 @@ async function loadInclude(targetSelector, path) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     target.innerHTML = await res.text();
   } catch (err) {
-    target.innerHTML = `<p style="font-family:monospace;font-size:12px;padding:12px;">
-      Não foi possível carregar ${path}. Corre o projeto num servidor local
-      (ex.: Live Server) em vez de abrir o ficheiro diretamente.
-    </p>`;
     console.warn("Falha ao carregar include:", path, err);
   }
 }
 
-/* -------------------------------------------------------------- */
-/* 2) Troca de piso / edifício                                     */
-/* -------------------------------------------------------------- */
-function switchFloor(edificio, piso) {
+/* 2) Função Principal: Carrega o SVG diretamente da pasta SVG/ */
+async function loadSVGFloor(edificio, piso) {
   CURRENT.edificio = edificio;
   CURRENT.piso = piso;
-  const key = `${edificio}-${piso}`;
 
-  const svg = document.getElementById("floor-svg");
+  const svgContainer = document.getElementById("svg-container");
   const emptyMsg = document.getElementById("floor-empty-msg");
 
-  // Força visibilidade via estilo inline em TODOS os grupos — não depender
-  // só da classe CSS evita problemas de timing/especificidade entre browsers.
-  document.querySelectorAll(".floor-group").forEach((g) => {
-    g.classList.remove("is-active");
-    g.style.display = "none";
-  });
-  const target = document.getElementById(`fg-${key}`);
+  // Define o caminho do ficheiro com base na estrutura de pastas
+  const ficheiroSVG = (edificio === "A")
+    ? `SVG/EDIF-A.svg`
+    : `SVG/EDIF-${edificio}-Piso-${piso}.svg`;
 
-  if (!target || !ROOMS_DATA[key]) {
-    if (emptyMsg) emptyMsg.style.display = "block";
-    if (svg) svg.style.display = "none";
+  try {
+    // Força o carregamento da versão mais recente eliminando a cache do browser
+    const resposta = await fetch(`${ficheiroSVG}?v=${new Date().getTime()}`);
+    if (!resposta.ok) throw new Error(`Ficheiro não encontrado: ${ficheiroSVG}`);
+
+    const svgTexto = await resposta.text();
+
+    if (emptyMsg) emptyMsg.style.display = "none";
+
+    if (svgContainer) {
+      // Injeta o SVG diretamente no contentor HTML
+      svgContainer.innerHTML = svgTexto;
+
+      const svgElement = svgContainer.querySelector("svg");
+      if (svgElement) {
+        svgElement.style.width = "100%";
+        svgElement.style.height = "auto";
+        svgElement.style.display = "block";
+      }
+    }
+
+    // Ativa os eventos de clique nas salas do SVG injetado
+    wireRooms();
     clearDetail();
-    return;
+    updateTextElements(`${edificio}-${piso}`);
+
+  } catch (err) {
+    console.error("Erro ao carregar o mapa SVG:", err);
+    if (emptyMsg) emptyMsg.style.display = "block";
+    if (svgContainer) svgContainer.innerHTML = "";
+    clearDetail();
   }
-
-  if (emptyMsg) emptyMsg.style.display = "none";
-  if (svg) {
-    svg.style.display = "block";
-    svg.setAttribute("viewBox", FLOOR_VIEWBOX[key] || "0 0 1000 600");
-  }
-  target.classList.add("is-active");
-  target.style.display = "block";
-  clearDetail();
-  wireRooms();
-
-  const footerPiso = document.getElementById("footer-piso-atual");
-  const floor = ROOMS_DATA[key];
-  if (footerPiso && floor) footerPiso.textContent = `${floor.edificio} · ${floor.piso}`;
-
-  const heading = document.getElementById("map-heading-title");
-  if (heading && floor) heading.textContent = `${floor.edificio} — ${floor.piso}`;
 }
 
+/* 3) Atualiza os textos do cabeçalho e rodapé */
+function updateTextElements(key) {
+  const floor = ROOMS_DATA[key];
+  if (!floor) return;
+
+  const footerPiso = document.getElementById("footer-piso-atual");
+  if (footerPiso) footerPiso.textContent = `${floor.edificio} · ${floor.piso}`;
+
+  const heading = document.getElementById("map-heading-title");
+  if (heading) heading.textContent = `${floor.edificio} — ${floor.piso}`;
+}
+
+/* 4) Escuta as alterações nos seletores de Edifício e Piso */
 function wireFloorSelectors() {
   const selEdificio = document.getElementById("select-edificio");
   const selPiso = document.getElementById("select-piso");
-  if (!selEdificio || !selPiso) return;
-  const onChange = () => switchFloor(selEdificio.value, selPiso.value);
-  selEdificio.addEventListener("change", onChange);
-  selPiso.addEventListener("change", onChange);
+
+  if (!selEdificio || !selPiso) {
+    setTimeout(wireFloorSelectors, 100);
+    return;
+  }
+
+  selEdificio.value = CURRENT.edificio;
+  selPiso.value = CURRENT.piso;
+
+  const updatePisoOptions = (edificioSelecionado) => {
+    const optPiso1 = selPiso.querySelector('option[value="1"]');
+    if (optPiso1) {
+      if (edificioSelecionado === "A") {
+        optPiso1.style.display = "none";
+        if (selPiso.value === "1") {
+          selPiso.value = "0";
+        }
+      } else {
+        optPiso1.style.display = "block";
+      }
+    }
+  };
+
+  updatePisoOptions(selEdificio.value);
+
+  selEdificio.addEventListener("change", () => {
+    updatePisoOptions(selEdificio.value);
+    loadSVGFloor(selEdificio.value, selPiso.value);
+  });
+
+  selPiso.addEventListener("change", () => {
+    loadSVGFloor(selEdificio.value, selPiso.value);
+  });
 }
 
-/* -------------------------------------------------------------- */
-/* 3) Mapa interativo                                               */
-/* -------------------------------------------------------------- */
+/* 5) Interatividade do Painel Lateral e Ficha da Sala */
 function getFloorData() {
   const key = `${CURRENT.edificio}-${CURRENT.piso}`;
   return ROOMS_DATA[key];
 }
 
 function initialsFor(nome) {
+  if (!nome) return "??";
   return nome
     .split(" ")
     .filter((w) => w.length > 2 || w === w.toUpperCase())
@@ -116,7 +140,8 @@ const ROOM_COLORS = {
   circulacao: "#5c7688",
   apoio: "#b8813f",
   reuniao: "#4a9c78",
-  aula: "#a15da8"
+  aula: "#a15da8",
+  estudio: "#e8803d"
 };
 
 function renderDetail(roomKey) {
@@ -126,71 +151,65 @@ function renderDetail(roomKey) {
   const empty = document.getElementById("detail-empty");
   if (!sala) return;
 
-  document.querySelectorAll(".room").forEach((el) => {
+  document.querySelectorAll(".room, [data-room]").forEach((el) => {
     el.classList.toggle("is-selected", el.dataset.room === roomKey);
   });
 
-  empty.style.display = "none";
-  card.classList.add("is-active");
+  if (empty) empty.style.display = "none";
+  if (card) card.classList.add("is-active");
 
   const img = document.getElementById("detail-image");
-  if (sala.imagem) {
-    img.style.backgroundImage = `url(${sala.imagem})`;
-    img.style.backgroundSize = "cover";
-    img.style.backgroundPosition = "center";
-    img.querySelector("span").textContent = "";
-  } else {
-    img.style.backgroundImage = "none";
-    img.style.background = ROOM_COLORS[sala.cor] || "#3d7bab";
-    img.querySelector("span").textContent = initialsFor(sala.nome);
+  if (img) {
+    if (sala.imagem) {
+      img.style.backgroundImage = `url(${sala.imagem})`;
+      img.style.backgroundSize = "cover";
+      img.style.backgroundPosition = "center";
+      const span = img.querySelector("span");
+      if (span) span.textContent = "";
+    } else {
+      img.style.backgroundImage = "none";
+      img.style.background = ROOM_COLORS[sala.cor] || "#3d7bab";
+      const span = img.querySelector("span");
+      if (span) span.textContent = initialsFor(sala.nome || sala.funcao);
+    }
   }
 
-  document.getElementById("detail-id").textContent = sala.id;
-  document.getElementById("detail-nome").textContent = sala.nome;
-  document.getElementById("detail-funcao").textContent = sala.funcao;
+  const idEl = document.getElementById("detail-id");
+  if (idEl) idEl.textContent = sala.id;
 
-  const emailBtn = document.getElementById("detail-email");
+  const nomeEl = document.getElementById("detail-nome");
+  if (nomeEl) nomeEl.textContent = sala.nome || sala.funcao;
 
-  if (sala.email) {
-    emailBtn.style.display = "inline-block";
-    emailBtn.href = `mailto:${sala.email}?subject=Contacto`;
-  } else {
-    emailBtn.style.display = "none";
+  const funcaoEl = document.getElementById("detail-funcao");
+  if (funcaoEl) funcaoEl.textContent = sala.funcao;
+
+  const capEl = document.getElementById("detail-capacidade");
+  if (capEl) {
+    capEl.textContent =
+      sala.capacidade === null || sala.capacidade === undefined
+        ? "—"
+        : sala.capacidade === 0
+          ? "Sem lotação (staff)"
+          : `${sala.capacidade} pessoas`;
   }
-
-  emailBtn.onclick = () => {
-    window.open(
-      `https://outlook.office.com/calendar/action/compose?to=${encodeURIComponent(sala.email)}`,
-      "_blank"
-    );
-  };
-  document.getElementById("detail-capacidade").textContent =
-    sala.capacidade === null || sala.capacidade === undefined
-      ? "—"
-      : sala.capacidade === 0
-        ? "Sem lotação (staff)"
-        : `${sala.capacidade} pessoas`;
 }
 
 function clearDetail() {
-  document.querySelectorAll(".room.is-selected").forEach((el) =>
+  document.querySelectorAll(".room.is-selected, [data-room].is-selected").forEach((el) =>
     el.classList.remove("is-selected")
   );
-  document.getElementById("detail-card").classList.remove("is-active");
-  document.getElementById("detail-empty").style.display = "block";
+  const card = document.getElementById("detail-card");
+  const empty = document.getElementById("detail-empty");
+  if (card) card.classList.remove("is-active");
+  if (empty) empty.style.display = "block";
 }
 
 function wireRooms() {
-  document.querySelectorAll(".room").forEach((el) => {
+  document.querySelectorAll(".room, [data-room]").forEach((el) => {
     if (el.dataset.wired === "1") return;
     el.dataset.wired = "1";
+    el.style.cursor = "pointer";
     el.addEventListener("click", () => renderDetail(el.dataset.room));
-    el.addEventListener("keydown", (ev) => {
-      if (ev.key === "Enter" || ev.key === " ") {
-        ev.preventDefault();
-        renderDetail(el.dataset.room);
-      }
-    });
   });
 
   const closeBtn = document.getElementById("detail-close");
@@ -200,22 +219,13 @@ function wireRooms() {
   }
 }
 
-/* -------------------------------------------------------------- */
-/* Arranque                                                         */
-/* -------------------------------------------------------------- */
+/* Arranque do projeto */
 document.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([
     loadInclude("#header-slot", "INCLUDES/header.html"),
     loadInclude("#footer-slot", "INCLUDES/footer.html")
   ]);
-  wireRooms();
-  wireFloorSelectors();
 
-  // Sincroniza os <select> com o estado inicial e força a visibilidade
-  // correta dos grupos de piso (não confiar só nas classes estáticas do HTML).
-  const selEdificio = document.getElementById("select-edificio");
-  const selPiso = document.getElementById("select-piso");
-  if (selEdificio) selEdificio.value = CURRENT.edificio;
-  if (selPiso) selPiso.value = CURRENT.piso;
-  switchFloor(CURRENT.edificio, CURRENT.piso);
+  wireFloorSelectors();
+  loadSVGFloor(CURRENT.edificio, CURRENT.piso);
 });
