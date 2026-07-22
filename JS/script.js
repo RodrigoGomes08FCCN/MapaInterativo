@@ -172,6 +172,25 @@ function renderDetail(roomKey) {
       const span = img.querySelector("span");
       if (span) span.textContent = initialsFor(sala.nome || sala.funcao);
     }
+
+    // vai buscar o email
+    const emailBtn = document.getElementById("detail-email");
+    
+    // po botao so aparece quando existe email, senao fica escondido
+    if (sala.email) {
+      emailBtn.style.display = "inline-block";
+      emailBtn.href = `mailto:${sala.email}?subject=Contacto`;
+    } else {
+      emailBtn.style.display = "none";
+    }
+
+    // abre o outlook com o email da sala
+    emailBtn.onclick = () => {
+      window.open(
+        `https://outlook.office.com/calendar/action/compose?to=${encodeURIComponent(sala.email)}`,
+        "_blank"
+      );
+    };
   }
 
   const idEl = document.getElementById("detail-id");
