@@ -7,7 +7,9 @@
   <title>Mapa Interativo</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="CSS/style.css">
 </head>
@@ -27,50 +29,10 @@
         </span>
       </div>
 
-      <div
-        id="floor-empty-msg"
-        style="display:none; font-family: var(--font-mono); font-size:0.85rem; color:var(--ink-soft); padding:40px 0; text-align:center;">
-        Ainda não tenho a planta deste piso. Manda-ma e adiciono-a ao mapa.
-      </div>
-
       <div class="map-frame">
 
         <!-- O SVG será carregado aqui pelo JavaScript -->
         <div id="svg-container"></div>
-
-      </div>
-
-      <div class="map-panel__hint" style="margin-top:8px; display:block;">
-        * Reconstrução baseada na planta real fornecida. Confirma/ajusta nomes em
-        <code>JS/rooms-data.js</code>.
-      </div>
-
-      <div class="legend">
-
-        <span class="legend__item">
-          <i class="legend__swatch legend__swatch--gabinete"></i>
-          Gabinetes
-        </span>
-
-        <span class="legend__item">
-          <i class="legend__swatch legend__swatch--circulacao"></i>
-          Circulação
-        </span>
-
-        <span class="legend__item">
-          <i class="legend__swatch legend__swatch--apoio"></i>
-          Apoio / Arrumos
-        </span>
-
-        <span class="legend__item">
-          <i class="legend__swatch legend__swatch--reuniao"></i>
-          Reuniões
-        </span>
-
-        <span class="legend__item">
-          <i class="legend__swatch legend__swatch--aula"></i>
-          Sala de aula
-        </span>
 
       </div>
 
@@ -97,7 +59,6 @@
 
         <div>
           <div class="detail-card__id" id="detail-id"></div>
-          <h2 class="detail-card__name" id="detail-nome"></h2>
         </div>
 
         <dl class="detail-card__meta">

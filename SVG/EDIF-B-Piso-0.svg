@@ -54,42 +54,48 @@
 
   <!-- 2. SALAS CLICÁVEIS (Camada Superior) -->
   <g id="salas-clicaveis" style="pointer-events: all; cursor: pointer;">
-    <rect class="room room--gabinete" data-room="b07" x="295" y="1990" width="720" height="950"></rect>
-    <rect class="room room--gabinete" data-room="b07_ext" x="250" y="1450" width="800" height="500"></rect>
-    <rect class="room room--gabinete" data-room="b08" x="1050" y="2250" width="550" height="720"></rect>
-    <rect class="room room--gabinete" data-room="b08_ext" x="1600" y="2250" width="620" height="720"></rect>
+    <rect class="room room--gabinete" data-room="b06" x="295" y="1990" width="720" height="950"></rect>
+    <rect class="room room--gabinete" data-room="b07" x="1050" y="2250" width="550" height="720"></rect>
+    <rect class="room room--gabinete" data-room="b08" x="1600" y="2250" width="620" height="720"></rect>
     <rect class="room room--apoio" data-room="b02" x="1050" y="250" width="550" height="670"></rect>
     <rect class="room room--apoio" data-room="b03" x="1630" y="250" width="600" height="670"></rect>
     <rect class="room room--apoio" data-room="b04" x="2280" y="250" width="560" height="670"></rect>
-    <rect class="room room--apoio" data-room="b04_ext" x="2850" y="250" width="650" height="670"></rect>
+    <rect class="room room--apoio" data-room="b05" x="2850" y="250" width="650" height="670"></rect>
+    <rect class="room room--gabinete" data-room="wc" x="250" y="1450" width="800" height="500"></rect>
 
+    <!-- Copa -->
+    <rect class="room room--circulacao" data-room="copa" x="2250" y="2240" width="2500" height="700"></rect>
+    
     <!-- Open Space -->
-    <rect class="room room--circulacao" data-room="openSpace" x="2250" y="2240" width="2500" height="700"></rect>
-    <rect class="room room--circulacao" data-room="openSpace" x="1050" y="950" width="3730" height="1280"></rect>
-    <rect class="room room--circulacao" data-room="openSpace" x="3530" y="250" width="1250" height="700"></rect>
+    <rect class="room room--circulacao" data-room="openSpace1" x="1050" y="950" width="3730" height="1280"></rect>
+    <rect class="room room--circulacao" data-room="openSpace1" x="3530" y="250" width="1250" height="700"></rect>
 
-    <!-- Reuniões -->
-    <rect class="room room--reuniao" data-room="reunioes" x="4780" y="2250" width="640" height="480"></rect>
-    <rect class="room room--reuniao" data-room="reunioes" x="5050" y="1350" width="330" height="850"></rect>
-    <rect class="room room--reuniao" data-room="reunioes" x="5400" y="1650" width="520" height="700"></rect>
-    <rect class="room room--reuniao" data-room="reunioes" x="5400" y="1350" width="540" height="280"></rect>
-    <rect class="room room--reuniao" data-room="reunioes" x="5950" y="1650" width="850" height="700"></rect>
-    <rect class="room room--reuniao" data-room="reunioes" x="5400" y="220" width="1900" height="1100"></rect>
-    <rect class="room room--reuniao" data-room="reunioes" x="5950" y="1330" width="1330" height="300"></rect>
+    <!-- Sala de estar -->
+    <rect class="room room--reuniao" data-room="sala_estar" x="4780" y="2250" width="640" height="480"></rect>
+
+    <!-- Estudio -->
+    <rect class="room room--reuniao" data-room="camarim" x="5050" y="1350" width="330" height="850"></rect>
+    <rect class="room room--reuniao" data-room="estudio1" x="5400" y="1650" width="520" height="700"></rect>
+    <rect class="room room--reuniao" data-room="estudio2" x="5400" y="1350" width="540" height="280"></rect>
+    <rect class="room room--reuniao" data-room="estudio3" x="5950" y="1650" width="850" height="700"></rect>
+    <rect class="room room--reuniao" data-room="estudio4" x="5400" y="220" width="1900" height="1100"></rect>
+    <rect class="room room--reuniao" data-room="estudio4" x="5950" y="1330" width="1330" height="300"></rect>
 
     <!-- Outros -->
-    <rect class="room room--circulacao" data-room="recepcao" x="7300" y="220" width="580" height="1300"></rect>
-    <rect class="room room--aula" data-room="aula_magna" x="7900" y="2550" width="700" height="400"></rect>
+    <rect class="room room--circulacao" data-room="entradaDoEDB" x="7300" y="220" width="580" height="1300"></rect>
+    <rect class="room room--aula" data-room="wcASIF" x="7900" y="2550" width="700" height="400"></rect>
 
     <!-- Estúdio Anexos -->
-    <rect class="room room--estudio" data-room="estudio_anexo1" x="8630" y="2400" width="600" height="550"></rect>
-    <rect class="room room--estudio" data-room="estudio_anexo2" x="9260" y="2400" width="720" height="550"></rect>
+    <rect class="room room--estudio" data-room="b020" x="8630" y="2400" width="600" height="550"></rect>
+    <rect class="room room--estudio" data-room="b021" x="9260" y="2400" width="720" height="550"></rect>
 
-    <!-- Estúdio Principal -->
-    <rect class="room room--estudio" data-room="estudio" x="7900" y="1400" width="700" height="800"></rect>
-    <rect class="room room--estudio" data-room="estudio" x="7900" y="850" width="700" height="550"></rect>
-    <rect class="room room--estudio" data-room="estudio" x="7900" y="230" width="2550" height="620"></rect>
-    <rect class="room room--estudio" data-room="estudio" x="8610" y="850" width="1850" height="1550"></rect>
+    <!-- Salas -->
+    <rect class="room room--estudio" data-room="b018" x="7900" y="1400" width="700" height="800"></rect>
+    <rect class="room room--estudio" data-room="b017" x="7900" y="850" width="700" height="550"></rect>
+
+    <!-- Open Space -->
+    <rect class="room room--circulacao" data-room="openSpace2" x="7900" y="230" width="2550" height="620"></rect>
+    <rect class="room room--circulacao" data-room="openSpace2" x="8610" y="850" width="1850" height="1550"></rect>
   </g>
 
 </g>

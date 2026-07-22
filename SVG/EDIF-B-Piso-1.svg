@@ -12,44 +12,41 @@
     <!-- 2. SALAS CLICÁVEIS (Camada Superior) -->
     <g id="salas-clicaveis" style="pointer-events: all; cursor: pointer;">
       <!-- Gabinetes Superior -->
-      <rect class="room room--gabinete" data-room="b1_t1" x="580" y="1780" width="740" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t2" x="1320" y="1780" width="760" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t3" x="2080" y="1780" width="800" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t4" x="2880" y="1780" width="760" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t5" x="3640" y="1780" width="760" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t6" x="4400" y="1780" width="760" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t7" x="5160" y="1780" width="1170" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t8" x="6330" y="1780" width="820" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t9" x="7150" y="1780" width="1560" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_t10" x="8710" y="2050" width="1100" height="810"></rect>
-      <rect class="room room--circulacao" data-room="b1_torre_b" x="9810" y="1780" width="1200" height="1830"></rect>
+      <rect class="room room--gabinete" data-room="wc" x="580" y="1780" width="740" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_3" x="1320" y="1780" width="760" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_4" x="2080" y="1780" width="800" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_5" x="2880" y="1780" width="760" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_6" x="3640" y="1780" width="760" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_7" x="4400" y="1780" width="760" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_8" x="5160" y="1780" width="1170" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_9" x="6330" y="1780" width="820" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_10" x="7150" y="1780" width="1560" height="1080"></rect>
+      <rect class="room room--gabinete" data-room="b1_11" x="8710" y="2050" width="1100" height="810"></rect>
+      <rect class="room room--circulacao" data-room="b1_12" x="9810" y="1780" width="1200" height="1830"></rect>
 
-      <!-- Corredor -->
-      <rect class="room room--circulacao" data-room="b1_corredor" x="400" y="1300" width="11500" height="450"></rect>
+     
 
-      <!-- Gabinetes Inferior -->
-      <rect class="room room--gabinete" data-room="b1_escadas" x="580" y="360" width="770" height="950"></rect>
-      <rect class="room room--gabinete" data-room="b1_b1" x="1370" y="360" width="770" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b2" x="2150" y="360" width="760" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b3" x="2930" y="360" width="760" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b4" x="3660" y="360" width="1540" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b5" x="5210" y="360" width="820" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b6" x="6030" y="360" width="770" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b7" x="6800" y="360" width="750" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b8" x="7550" y="360" width="790" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b9" x="8340" y="360" width="770" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_b10" x="9110" y="360" width="780" height="950"></rect>
-      <rect class="room room--gabinete" data-room="b1_b11" x="9870" y="360" width="770" height="920"></rect>
-      <rect class="room room--gabinete" data-room="b1_b12" x="10640" y="360" width="770" height="910"></rect>
+      
+      <rect class="room room--gabinete" data-room="b1_26" x="1370" y="360" width="770" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_25" x="2150" y="360" width="760" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_24" x="2930" y="360" width="760" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_23" x="3660" y="360" width="1540" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_22" x="5210" y="360" width="820" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_21" x="6030" y="360" width="770" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_20" x="6800" y="360" width="750" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_19" x="7550" y="360" width="790" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_18" x="8340" y="360" width="770" height="900"></rect>
+      <rect class="room room--gabinete" data-room="b1_17" x="9870" y="360" width="770" height="920"></rect>
+      <rect class="room room--gabinete" data-room="b1_16" x="10640" y="360" width="770" height="910"></rect>
 
-      <!-- Sala T14 -->
-      <rect class="room room--gabinete" data-room="b1_t14" x="11030" y="2830" width="1350" height="780"></rect>
-      <rect class="room room--gabinete" data-room="b1_t14" x="11030" y="1800" width="379" height="1030"></rect>
+      <!-- Sala 13 -->
+      <rect class="room room--gabinete" data-room="b1_13" x="11030" y="2830" width="1350" height="780"></rect>
+      <rect class="room room--gabinete" data-room="b1_13" x="11030" y="1800" width="379" height="1030"></rect>
 
       <!-- Copa -->
-      <rect class="room room--gabinete" data-room="b1_b13" x="11440" y="1800" width="1500" height="1050"></rect>
-      <rect class="room room--gabinete" data-room="b1_b13" x="11920" y="1280" width="1020" height="520"></rect>
-      <rect class="room room--gabinete" data-room="b1_b13" x="11440" y="360" width="1500" height="910"></rect>
+      <rect class="room room--gabinete" data-room="b1_14" x="11440" y="1800" width="1500" height="1050"></rect>
+      <rect class="room room--gabinete" data-room="b1_104" x="11920" y="1280" width="1020" height="520"></rect>
+      <rect class="room room--gabinete" data-room="b1_15" x="11440" y="360" width="1500" height="910"></rect>
     </g>
 
   </g>
