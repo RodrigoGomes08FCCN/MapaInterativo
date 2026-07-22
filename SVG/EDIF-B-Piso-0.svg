@@ -82,7 +82,6 @@
     <rect class="room room--reuniao" data-room="estudio4" x="5950" y="1330" width="1330" height="300"></rect>
 
     <!-- Outros -->
-    <rect class="room room--circulacao" data-room="entradaDoEDB" x="7300" y="220" width="580" height="1300"></rect>
     <rect class="room room--aula" data-room="wcASIF" x="7900" y="2550" width="700" height="400"></rect>
 
     <!-- Estúdio Anexos -->
