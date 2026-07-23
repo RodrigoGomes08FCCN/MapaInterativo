@@ -5,42 +5,42 @@
  * o Edifício e o Piso selecionados.
  */
 
-//guarda o piso e o edifício selecionado
+// Guarda o piso e o edifício selecionado
 const CURRENT = { edificio: "B", piso: "0" };
+
+// Determina o prefixo do caminho relativo de forma insensível a maiúsculas/minúsculas
+const PATH_PREFIX = window.location.pathname.toLowerCase().includes('/html/') ? '../' : '';
 
 /* 1) Função para carregar os ficheiros de suporte (Header/Footer) */
 async function loadInclude(targetSelector, path) {
-
-  //Procura o elemento onde será colocado o conteúdo.
+  // Procura o elemento onde será colocado o conteúdo.
   const target = document.querySelector(targetSelector);
   if (!target) return;
+  
   try {
-
-    //Faz um pedido ao ficheiro HTML.
+    // Faz um pedido ao ficheiro HTML.
     const res = await fetch(path);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     target.innerHTML = await res.text();
   } catch (err) {
-
-    //Mostra mensagem se der erro.
+    // Mostra mensagem se der erro.
     console.warn("Falha ao carregar include:", path, err);
   }
 }
 
 /* 2) Função Principal: Carrega o SVG diretamente da pasta SVG/ */
 async function loadSVGFloor(edificio, piso) {
-
-  //Atualiza o edifício e piso atuais.
+  // Atualiza o edifício e piso atuais.
   CURRENT.edificio = edificio;
   CURRENT.piso = piso;
 
   const svgContainer = document.getElementById("svg-container");
   const emptyMsg = document.getElementById("floor-empty-msg");
 
-  // Define o caminho do ficheiro com base na estrutura de pastas
+  // Define o caminho do ficheiro adaptando ao prefixo relativo correto
   const ficheiroSVG = (edificio === "A")
-    ? `public/assets/SVG/EDIF-A.svg`
-    : `public/assets/SVG/EDIF-${edificio}-Piso-${piso}.svg`;
+    ? `${PATH_PREFIX}public/assets/SVG/EDIF-A.svg`
+    : `${PATH_PREFIX}public/assets/SVG/EDIF-${edificio}-Piso-${piso}.svg`;
 
   try {
     // Força o carregamento da versão mais recente eliminando a cache do browser
@@ -89,7 +89,6 @@ function updateTextElements(key) {
 }
 
 /* 4) Escuta as alterações nos seletores de Edifício e Piso */
-//liga os selects ao mapa
 function wireFloorSelectors() {
   const selEdificio = document.getElementById("select-edificio");
   const selPiso = document.getElementById("select-piso");
@@ -154,24 +153,13 @@ const ROOM_COLORS = {
   estudio: "#e8803d"
 };
 
-//carrega os detalhes da sala no painel lateral
-
 function renderDetail(roomKey) {
-
-  //pega os dados do piso selecionado
   const floor = getFloorData();
-
-  //pega os dados da sala selecionada
   const sala = floor && floor.salas[roomKey];
-
-  // pega os detalhes da sala selecionada
   const card = document.getElementById("detail-card");
-
-  // Mostra a mensagem de "nenhuma sala selecionada" se não houver sala
   const empty = document.getElementById("detail-empty");
   if (!sala) return;
 
-  // Marca a sala selecionada no mapa e no painel lateral
   document.querySelectorAll(".room, [data-room]").forEach((el) => {
     el.classList.toggle("is-selected", el.dataset.room === roomKey);
   });
@@ -179,30 +167,26 @@ function renderDetail(roomKey) {
   if (empty) empty.style.display = "none";
   if (card) card.classList.add("is-active");
 
-  // Atualiza a imagem da sala ou as iniciais se não houver imagem
   const img = document.getElementById("detail-image");
   if (img) {
     if (sala.imagem) {
-      img.style.backgroundImage = `url(${sala.imagem})`;
+      // Garante que o caminho da imagem tem o prefixo correto
+      const imgPath = sala.imagem.startsWith('http') ? sala.imagem : `${PATH_PREFIX}${sala.imagem}`;
+      img.style.backgroundImage = `url(${imgPath})`;
       img.style.backgroundSize = "cover";
       img.style.backgroundPosition = "center";
 
-      // remove as iniciais se houver imagem
       const span = img.querySelector("span");
       if (span) span.textContent = "";
     } else {
-
-      // se não houver imagem, mostra as iniciais da sala com a cor correspondente
       img.style.backgroundImage = "none";
       img.style.background = ROOM_COLORS[sala.cor] || "#3d7bab";
       const span = img.querySelector("span");
       if (span) span.textContent = initialsFor(sala.nome || sala.funcao);
     }
 
-    // vai buscar o email
     const emailBtn = document.getElementById("detail-email");
 
-    // o botao so aparece quando existe email, senao fica escondido
     if (sala.email) {
       emailBtn.style.display = "inline-block";
       emailBtn.href = `mailto:${sala.email}?subject=Contacto`;
@@ -210,7 +194,6 @@ function renderDetail(roomKey) {
       emailBtn.style.display = "none";
     }
 
-    // abre o outlook com o email da sala
     emailBtn.onclick = () => {
       window.open(
         `https://outlook.office.com/calendar/action/compose?to=${encodeURIComponent(sala.email)}`,
@@ -219,11 +202,9 @@ function renderDetail(roomKey) {
     };
   }
 
-  //verifica-se se esse elemento existe caso exista conteudo (textContent) e atualizado com o valor de sala.id
   const idEl = document.getElementById("detail-id");
   if (idEl) idEl.textContent = sala.id;
 
-  //verifica-se se esse elemento existe caso exista conteudo (textContent) e atualizado com o valor de sala.nome
   const nomeEl = document.getElementById("detail-nome");
   if (nomeEl) nomeEl.textContent = sala.nome || sala.funcao;
 
@@ -251,13 +232,7 @@ function clearDetail() {
   if (empty) empty.style.display = "block";
 }
 
-// Adiciona eventos de clique às salas do mapa e ao botão de fechar detalhes
 function wireRooms() {
-  
-  // seleciona todos os elementos que representam salas no mapa, usando dois seletores:
-  //.room – elementos com a classe room;
-  // [data-room] – elementos que possuem o atributo data-room.
-  // De seguida, percorre cada um desses elementos utilizando o método forEach().
   document.querySelectorAll(".room, [data-room]").forEach((el) => {
     if (el.dataset.wired === "1") return;
     el.dataset.wired = "1";
@@ -274,9 +249,17 @@ function wireRooms() {
 
 /* Arranque do projeto */
 document.addEventListener("DOMContentLoaded", async () => {
+  // Lê os parâmetros da URL para saber se já vem com Edifício e Piso selecionados
+  const urlParams = new URLSearchParams(window.location.search);
+  const edParam = urlParams.get('edificio');
+  const pisoParam = urlParams.get('piso');
+
+  if (edParam) CURRENT.edificio = edParam;
+  if (pisoParam) CURRENT.piso = pisoParam;
+
   await Promise.all([
-    loadInclude("#header-slot", "public/INCLUDES/header.html"),
-    loadInclude("#footer-slot", "public/INCLUDES/footer.html")
+    loadInclude("#header-slot", `${PATH_PREFIX}public/INCLUDES/header.html`),
+    loadInclude("#footer-slot", `${PATH_PREFIX}public/INCLUDES/footer.html`)
   ]);
 
   wireFloorSelectors();

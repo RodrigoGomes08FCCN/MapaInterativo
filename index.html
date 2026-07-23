@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa Interativo</title>
+  <title>Seleção de Planta — Mapa Interativo</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,112 +16,87 @@
 
   <div id="header-slot"></div>
 
-  <main class="app">
+  <main class="landing-container">
+    <div class="landing-card">
+      <h1 class="landing-title">Selecionar Edifício e Piso</h1>
+      <p class="landing-subtitle">Escolhe a planta que pretendes consultar no mapa interativo.</p>
 
-    <section class="map-panel">
+      <form id="landing-form" class="landing-form">
+        <label class="field">
+          <span class="field__label">Edifício</span>
+          <select id="landing-select-edificio" class="field__control">
+            <option value="B" selected>Edifício B</option>
+            <option value="A">Edifício A</option>
+          </select>
+        </label>
 
-      <div class="map-panel__heading">
-        <h1 id="map-heading-title">Mapa Interativo</h1>
-        <span class="map-panel__hint">
-          Clica numa divisória para veres os detalhes →
-        </span>
-      </div>
+        <label class="field">
+          <span class="field__label">Piso</span>
+          <select id="landing-select-piso" class="field__control">
+            <option value="0" selected>Piso 0</option>
+            <option value="1">Piso 1</option>
+          </select>
+        </label>
 
-      <div class="map-frame">
-        <div id="svg-container"></div>
-      </div>
-
-      <ul class="legend">
-        <li class="legend__item">
-          <span class="legend__swatch legend__swatch--gabinete" aria-hidden="true"></span>
-          Salas de trabalho
-        </li>
-        <li class="legend__item">
-          <span class="legend__swatch legend__swatch--open-space" aria-hidden="true"></span>
-          Open Space
-        </li>
-        <li class="legend__item">
-          <span class="legend__swatch legend__swatch--arrumacoes" aria-hidden="true"></span>
-          Arrumações
-        </li>
-        <li class="legend__item">
-          <span class="legend__swatch legend__swatch--reuniao" aria-hidden="true"></span>
-          Sala de Reuniões
-        </li>
-        <li class="legend__item">
-          <span class="legend__swatch legend__swatch--wc" aria-hidden="true"></span>
-          W.C.
-        </li>
-        <li class="legend__item">
-          <span class="legend__swatch legend__swatch--estudio" aria-hidden="true"></span>
-          Estúdio
-        </li>
-        <li class="legend__item">
-          <span class="legend__swatch legend__swatch--convivio" aria-hidden="true"></span>
-          Área de Convívio
-        </li>
-      </ul>
-
-    </section>
-
-    <aside class="detail-panel" aria-live="polite">
-
-      <div class="detail-panel__empty" id="detail-empty">
-
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M3 21V9.5L12 3l9 6.5V21h-6v-7H9v7H3Z" stroke-linejoin="round"/>
-        </svg>
-
-        Seleciona uma divisória na planta<br>
-        para veres a ficha da sala.
-
-      </div>
-
-      <div class="detail-card" id="detail-card">
-
-        <div class="detail-card__image" id="detail-image">
-          <span></span>
-        </div>
-
-        <div>
-          <div class="detail-card__id" id="detail-id"></div>
-        </div>
-
-        <dl class="detail-card__meta">
-
-          <div class="detail-card__stat">
-            <dt>Função</dt>
-            <dd id="detail-funcao"></dd>
-          </div>
-
-          <div class="detail-card__stat">
-            <dt>Nº máx. lugares</dt>
-            <dd id="detail-capacidade"></dd>
-          </div>
-
-        </dl>
-
-        <!-- Container para alinhar os botões lado a lado -->
-        <div class="detail-card__actions">
-          <button class="detail-card__btn detail-card__btn--primary" id="detail-email">
-            Reservar
-          </button>
-
-          <button class="detail-card__btn" id="detail-close">
-            Fechar ficha
-          </button>
-        </div>
-
-      </div>
-
-    </aside>
-
+        <button type="submit" class="landing-btn">Ver Planta</button>
+      </form>
+    </div>
   </main>
 
   <div id="footer-slot"></div>
 
-  <script src="public/assets/JS/rooms-data.js"></script>
-  <script src="public/assets/JS/script.js"></script>
+  <script>
+    async function loadInclude(targetSelector, path) {
+      const target = document.querySelector(targetSelector);
+      if (!target) return;
+      try {
+        const res = await fetch(path);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        target.innerHTML = await res.text();
+      } catch (err) {
+        console.warn("Falha ao carregar include:", path, err);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await Promise.all([
+        loadInclude("#header-slot", "public/INCLUDES/header.html"),
+        loadInclude("#footer-slot", "public/INCLUDES/footer.html")
+      ]);
+
+      // Ocultar a navegação do header na página inicial
+      const navHeader = document.querySelector(".site-header__nav");
+      if (navHeader) {
+        navHeader.style.display = "none";
+      }
+
+      const selEdificio = document.getElementById("landing-select-edificio");
+      const selPiso = document.getElementById("landing-select-piso");
+      const form = document.getElementById("landing-form");
+
+      const updatePisoOptions = (edificio) => {
+        const optPiso1 = selPiso.querySelector('option[value="1"]');
+        if (optPiso1) {
+          if (edificio === "A") {
+            optPiso1.style.display = "none";
+            if (selPiso.value === "1") selPiso.value = "0";
+          } else {
+            optPiso1.style.display = "block";
+          }
+        }
+      };
+
+      selEdificio.addEventListener("change", () => updatePisoOptions(selEdificio.value));
+      updatePisoOptions(selEdificio.value);
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const ed = selEdificio.value;
+        const piso = selPiso.value;
+        window.location.href = `HTML/mapa.html?edificio=${ed}&piso=${piso}`;
+      });
+    });
+  </script>
 
 </body>
 
