@@ -31,6 +31,37 @@
         <div id="svg-container"></div>
       </div>
 
+      <ul class="legend">
+        <li class="legend__item">
+          <span class="legend__swatch legend__swatch--gabinete" aria-hidden="true"></span>
+          Salas de trabalho
+        </li>
+        <li class="legend__item">
+          <span class="legend__swatch legend__swatch--open-space" aria-hidden="true"></span>
+          Open Space
+        </li>
+        <li class="legend__item">
+          <span class="legend__swatch legend__swatch--arrumacoes" aria-hidden="true"></span>
+          Arrumações
+        </li>
+        <li class="legend__item">
+          <span class="legend__swatch legend__swatch--reuniao" aria-hidden="true"></span>
+          Sala de Reuniões
+        </li>
+        <li class="legend__item">
+          <span class="legend__swatch legend__swatch--wc" aria-hidden="true"></span>
+          W.C.
+        </li>
+        <li class="legend__item">
+          <span class="legend__swatch legend__swatch--estudio" aria-hidden="true"></span>
+          Estúdio
+        </li>
+        <li class="legend__item">
+          <span class="legend__swatch legend__swatch--convivio" aria-hidden="true"></span>
+          Área de Convívio
+        </li>
+      </ul>
+
     </section>
 
     <aside class="detail-panel" aria-live="polite">
@@ -70,13 +101,16 @@
 
         </dl>
 
-        <button class="detail-card__close" id="detail-email">
-          Reservar
-        </button>
+        <!-- Container para alinhar os botões lado a lado -->
+        <div class="detail-card__actions">
+          <button class="detail-card__btn detail-card__btn--primary" id="detail-email">
+            Reservar
+          </button>
 
-        <button class="detail-card__close" id="detail-close">
-          Fechar ficha
-        </button>
+          <button class="detail-card__btn" id="detail-close">
+            Fechar ficha
+          </button>
+        </div>
 
       </div>
 

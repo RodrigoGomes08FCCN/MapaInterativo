@@ -7,7 +7,7 @@
    ================================================================= */
 
 :root {
-  /* --- cor --- */
+  /* --- cor base blueprint / papel --- */
   --paper: #eef1f4;
   --paper-line: #dde3e9;
   --ink: #142433;
@@ -16,14 +16,26 @@
   --blueprint-deep: #081a2e;
   --line: #bcd6ea;
   --line-strong: #eaf4fb;
-  --accent: #e8a33d;
+  --accent: #d9933b;
   --accent-ink: #4a2f08;
 
-  --room-gabinete: #6fb1e0;
-  --room-circulacao: #8fa6b8;
-  --room-apoio: #d7a86e;
-  --room-reuniao: #7dc9a8;
-  --room-aula: #c98fd0;
+  /* --- CORES DOS COMPARTIMENTOS (PALETA PASTEL / SOFT) --- */
+  --room-rececao: #4a627a;         /* Receção — Azul Slate suave */
+  --room-copa: #e28575;            /* Copa / Refeitório — Coral pastel */
+  --room-trabalho: #63a4c8;        /* Salas de Trabalho — Azul suave */
+  --room-open-space: #d3be96;      /* Open Space — Bege / Areia */
+  --room-reuniao: #e5a752;        /* Salas de Reunião — Âmbar / Laranja macio */
+  --room-cabines: #d86969;        /* Cabines / Phone Booths — Terracota leve */
+  --room-estudio: #6dbf8b;         /* Estúdio — Verde Sálvia */
+  --room-quadro-eletrico: #e3c465; /* Quadro Elétrico / FV — Mostarda suave */
+  --room-wc: #889298;              /* WC — Cinza Azulado */
+  --room-arrumacoes: #9e7d6b;      /* Arrumações / Apoio — Castanho acinzentado */
+
+  /* Aliases para compatibilidade legada */
+  --room-gabinete: var(--room-trabalho);
+  --room-circulacao: #a0b2c1;
+  --room-convivio: #76c7c0;
+  --room-apoio: var(--room-arrumacoes);
 
   /* --- tipografia --- */
   --font-display: "Space Grotesk", "IBM Plex Sans", sans-serif;
@@ -56,7 +68,7 @@ body {
 a { color: inherit; }
 
 /* -------------------------------------------------------------- */
-/* Header                                                          */
+/* Header                                                         */
 /* -------------------------------------------------------------- */
 .site-header {
   display: flex;
@@ -137,7 +149,7 @@ a { color: inherit; }
 }
 
 .site-header__link {
-  align-self: center;
+  align-self: flex-end; /* Alinha o botão pelo fundo, tal como as caixas dos selects */
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -155,7 +167,7 @@ a { color: inherit; }
 }
 
 /* -------------------------------------------------------------- */
-/* Layout principal                                                 */
+/* Layout principal                                               */
 /* -------------------------------------------------------------- */
 .app {
   flex: 1;
@@ -192,10 +204,21 @@ a { color: inherit; }
   color: var(--ink-soft);
 } 
 
+.map-container {
+  width: 100%;
+  height: calc(100vh - 180px);
+}
+
+#mapa-svg {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .map-frame {
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 12px 28px -20px rgba(20, 36, 51, 0.25);
+  box-shadow: 0 12px 28px -20px rgba(20, 36, 51, 0.18);
   padding: 24px;
   border: 1px solid var(--paper-line);
   width: 100%;
@@ -205,37 +228,53 @@ a { color: inherit; }
 .map-frame svg, #svg-container svg {
   width: 100% !important;
   height: auto !important;
-  max-height: none !important; /* Remove a limitação que encolhia o mapa */
+  max-height: none !important;
   display: block;
 }
 
-/* --- salas dentro do SVG --- */
+/* -------------------------------------------------------------- */
+/* Salas dentro do SVG                                            */
+/* -------------------------------------------------------------- */
+svg .room,
 .room {
-  cursor: pointer;
-  fill-opacity: 0.14;
-  stroke: none;
-  transition: fill-opacity 0.15s ease;
+  cursor: pointer !important;
+  fill-opacity: 0.55 !important;
+  mix-blend-mode: normal !important;
+  stroke: none !important;
+  transition: fill-opacity 0.2s ease, filter 0.2s ease !important;
 }
 
-.room:hover { fill-opacity: 0.34; }
+svg .room:hover,
+.room:hover {
+  fill-opacity: 0.8 !important;
+  filter: brightness(1.05) !important;
+}
 
+svg .room.is-selected,
 .room.is-selected {
-  fill-opacity: 0.45;
-  stroke: var(--accent);
-  stroke-width: 2.4;
-  stroke-dasharray: 6 4;
+  fill-opacity: 0.85 !important;
+  mix-blend-mode: normal !important;
+  stroke: var(--accent) !important;
+  stroke-width: 20px !important;
+  stroke-dasharray: 60 40;
   animation: march 12s linear infinite;
 }
 
-@keyframes march {
-  to { stroke-dashoffset: -240; }
-}
-
-.room--gabinete   { fill: var(--room-gabinete); }
-.room--circulacao { fill: var(--room-circulacao); }
-.room--apoio      { fill: var(--room-apoio); }
-.room--reuniao    { fill: var(--room-reuniao); }
-.room--aula       { fill: var(--room-aula); }
+/* Atribuição de cores com seletor de alta especificidade */
+svg rect.room--rececao,          .room--rececao          { fill: var(--room-rececao) !important; }
+svg rect.room--copa,             .room--copa             { fill: var(--room-copa) !important; }
+svg rect.room--trabalho,         .room--trabalho         { fill: var(--room-trabalho) !important; }
+svg rect.room--gabinete,         .room--gabinete         { fill: var(--room-gabinete) !important; }
+svg rect.room--open-space,       .room--open-space       { fill: var(--room-open-space) !important; }
+svg rect.room--reuniao,          .room--reuniao          { fill: var(--room-reuniao) !important; }
+svg rect.room--cabines,          .room--cabines          { fill: var(--room-cabines) !important; }
+svg rect.room--estudio,          .room--estudio          { fill: var(--room-estudio) !important; }
+svg rect.room--quadro-eletrico,  .room--quadro-eletrico  { fill: var(--room-quadro-eletrico) !important; }
+svg rect.room--wc,               .room--wc               { fill: var(--room-wc) !important; }
+svg rect.room--arrumacoes,       .room--arrumacoes       { fill: var(--room-arrumacoes) !important; }
+svg rect.room--apoio,            .room--apoio            { fill: var(--room-apoio) !important; }
+svg rect.room--circulacao,       .room--circulacao       { fill: var(--room-circulacao) !important; }
+svg rect.room--convivio,         .room--convivio         { fill: var(--room-convivio) !important; }
 
 .walls {
   fill: none;
@@ -275,7 +314,7 @@ a { color: inherit; }
   display: block !important;
 }
 
-/* legenda */
+/* --- Legenda --- */
 .legend {
   display: flex;
   flex-wrap: wrap;
@@ -295,14 +334,23 @@ a { color: inherit; }
   display: inline-block;
 }
 
-.legend__swatch--gabinete   { background: var(--room-gabinete); }
-.legend__swatch--circulacao { background: var(--room-circulacao); }
-.legend__swatch--apoio      { background: var(--room-apoio); }
-.legend__swatch--reuniao    { background: var(--room-reuniao); }
-.legend__swatch--aula       { background: var(--room-aula); }
+.legend__swatch--rececao          { background: var(--room-rececao); }
+.legend__swatch--copa             { background: var(--room-copa); }
+.legend__swatch--trabalho         { background: var(--room-trabalho); }
+.legend__swatch--gabinete         { background: var(--room-gabinete); }
+.legend__swatch--open-space       { background: var(--room-open-space); }
+.legend__swatch--reuniao          { background: var(--room-reuniao); }
+.legend__swatch--cabines          { background: var(--room-cabines); }
+.legend__swatch--estudio          { background: var(--room-estudio); }
+.legend__swatch--quadro-eletrico  { background: var(--room-quadro-eletrico); }
+.legend__swatch--wc               { background: var(--room-wc); }
+.legend__swatch--arrumacoes       { background: var(--room-arrumacoes); }
+.legend__swatch--apoio            { background: var(--room-apoio); }
+.legend__swatch--circulacao       { background: var(--room-circulacao); }
+.legend__swatch--convivio         { background: var(--room-convivio); }
 
 /* -------------------------------------------------------------- */
-/* Painel de detalhes                                               */
+/* Painel de detalhes                                             */
 /* -------------------------------------------------------------- */
 .detail-panel {
   border-left: 1px solid var(--paper-line);
@@ -355,7 +403,7 @@ a { color: inherit; }
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px),
-                     linear-gradient(90deg, rgba(255,255,255,0.16) 1px, transparent 1px);
+                    linear-gradient(90deg, rgba(255,255,255,0.16) 1px, transparent 1px);
   background-size: 14px 14px;
 }
 
@@ -400,22 +448,55 @@ a { color: inherit; }
   font-weight: 600;
 }
 
-.detail-card__close {
-  align-self: flex-start;
-  background: none;
-  border: 1px solid var(--paper-line);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  cursor: pointer;
-  color: var(--ink-soft);
+/* -------------------------------------------------------------- */
+/* Ações do Painel (Botões Lado a Lado Alinhados)                 */
+/* -------------------------------------------------------------- */
+.detail-card__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  margin-top: 4px;
 }
 
-.detail-card__close:hover { border-color: var(--ink-soft); color: var(--ink); }
+.detail-card__btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  border: 1px solid var(--paper-line);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.detail-card__btn:hover {
+  border-color: var(--ink-soft);
+  color: var(--ink);
+}
+
+/* Botão Principal (Reservar) */
+.detail-card__btn--primary {
+  background: var(--blueprint);
+  color: var(--line-strong);
+  border-color: var(--blueprint);
+}
+
+.detail-card__btn--primary:hover {
+  background: var(--blueprint-deep);
+  border-color: var(--blueprint-deep);
+  color: #ffffff;
+}
 
 /* -------------------------------------------------------------- */
-/* Footer                                                           */
+/* Footer                                                         */
 /* -------------------------------------------------------------- */
 .site-footer {
   padding: 14px 32px 20px;
@@ -432,7 +513,7 @@ a { color: inherit; }
 .site-footer__meta { color: var(--ink); }
 
 /* -------------------------------------------------------------- */
-/* Responsivo                                                       */
+/* Responsivo & Acessibilidade                                    */
 /* -------------------------------------------------------------- */
 @media (max-width: 900px) {
   .app { grid-template-columns: 1fr; }
@@ -453,35 +534,4 @@ a { color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .room.is-selected { animation: none; }
-}
-
-.room--estudio { fill: var(--accent); }
-
-.room {
-  cursor: pointer;
-  fill-opacity: 0.35;
-  stroke: rgba(20, 36, 51, 0.2);
-  stroke-width: 10px; /* Compatível com a escala x10 da transformação */
-  transition: fill-opacity 0.2s ease;
-}
-
-.room:hover {
-  fill-opacity: 0.6;
-}
-
-.room.is-selected {
-  fill-opacity: 0.65;
-  stroke: var(--accent);
-  stroke-width: 25px;
-}
-
-.map-container{
-    width:100%;
-    height:calc(100vh - 80px);
-}
-
-#mapa-svg{
-    width:100%;
-    height:100%;
-    border:none;
 }

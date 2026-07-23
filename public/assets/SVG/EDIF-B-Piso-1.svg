@@ -1,37 +1,30 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1333 392" preserveAspectRatio="xMidYMid meet">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1333 392" preserveAspectRatio="xMidYMid meet" id="mapa-svg">
 
-  <g transform="translate(0.000000,392.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+  <g transform="translate(0.000000,392.000000) scale(0.100000,-0.100000)" stroke="none">
     
-    <!-- 1. LINHAS PRETAS DA PLANTA (Fundo - Não Bloqueia Cliques) -->
-    <g id="desenho-planta" pointer-events="none">
-      <path d="M9806 3634 c-3 -9 -6 -177 -6 -375 l0 -359 -4619 0 c-4389 0 -4619 -1 -4626 -17 -4 -10 -10 -258 -13 -552 l-5 -534 -88 5 -89 5 0 -317 0 -317 90 5 90 5 0 -329 c0 -408 7 -554 27 -554 8 0 17 9 20 20 5 20 14 20 6185 20 5342 0 6181 2 6194 14 12 13 14 192 14 1245 0 1150 -1 1232 -17 1251 -17 19 -29 20 -285 20 l-268 0 0 376 c0 312 -2 378 -14 390 -13 12 -199 14 -1299 14 -1162 0 -1285 -2 -1291 -16z m1184 -929 l0 -905 -582 0 -581 0 6 428 c4 235 7 642 7 905 l0 477 575 0 575 0 0 -905z m1380 535 l0 -370 -475 0 c-416 0 -475 -2 -475 -15 0 -8 -4 -15 -10 -15 -7 0 -10 -180 -10 -520 l0 -520 -185 0 -185 0 0 905 0 905 670 0 670 0 0 -370z m-11420 -920 l0 -540 -185 0 -185 0 0 338 c0 185 3 428 7 540 l6 202 179 0 178 0 0 -540z m370 0 l0 -540 -165 0 -165 0 0 540 0 540 165 0 165 0 0 -540z m760 0 l0 -540 -357 2 -358 3 -3 538 -2 537 360 0 360 0 0 -540z m804 13 c-3 -291 -7 -534 -10 -540 -3 -10 -87 -13 -379 -13 l-375 0 0 540 0 540 385 0 385 0 -6 -527z m766 -6 l0 -534 -142 -6 c-79 -4 -243 -7 -365 -7 l-223 0 0 233 c0 127 3 370 7 540 l6 307 359 0 358 0 0 -533z m750 -2 l0 -535 -355 0 -355 0 0 535 0 535 355 0 355 0 0 -535z m760 38 c0 -274 3 -515 6 -535 l7 -38 -367 0 -366 0 0 535 0 535 360 0 360 0 0 -497z m1170 -38 l0 -535 -558 0 -559 0 -6 143 c-4 78 -7 319 -7 535 l0 392 565 0 565 0 0 -535z m818 3 l-3 -533 -387 -3 -388 -2 0 535 0 535 390 0 390 0 -2 -532z m1562 4 l0 -529 -542 -6 c-298 -4 -640 -7 -760 -7 l-218 0 0 535 0 535 760 0 760 0 0 -528z m510 123 l0 -405 -235 0 -235 0 0 405 0 405 235 0 235 0 0 -405z m577 158 c-4 -137 -7 -319 -7 -405 l0 -158 -265 0 -265 0 0 405 0 405 272 0 271 0 -6 -247z m3143 -1013 l0 -1220 -750 0 -750 0 0 445 0 445 229 0 c126 0 236 3 245 6 14 5 16 37 16 251 0 198 -3 247 -14 259 -12 11 -59 14 -245 14 l-231 0 0 510 0 510 750 0 750 0 0 -1220z m-3148 273 c3 -122 5 -138 21 -141 10 -2 17 3 17 12 0 14 100 16 1030 16 l1030 0 0 -225 0 -225 -1035 0 c-1028 0 -1035 0 -1035 -20 0 -11 5 -20 10 -20 7 0 10 -155 10 -445 l0 -445 -355 0 -355 0 0 465 0 465 -3890 0 c-3835 0 -3889 0 -3900 -19 -6 -13 -10 -177 -10 -465 l0 -446 -370 0 -370 0 -1 23 c-1 12 -5 215 -8 452 -6 399 -7 430 -23 433 -15 3 -18 -4 -18 -32 l0 -36 -70 0 -70 0 0 270 0 270 79 0 c49 0 81 -4 83 -11 3 -8 1126 -8 4080 -2 3717 9 4077 11 4092 26 13 12 16 38 16 126 l0 111 520 0 519 0 3 -137z m798 -1048 l0 -445 -355 0 -355 0 0 445 0 445 355 0 355 0 0 -445z m810 0 l0 -445 -385 0 -385 0 0 445 0 445 385 0 385 0 0 -445z m-9280 -5 l0 -440 -375 0 -375 0 0 440 0 440 375 0 375 0 0 -440z m770 0 l0 -440 -365 0 -365 0 0 440 0 440 365 0 365 0 0 -440z m760 0 l0 -440 -360 0 -360 0 0 440 0 440 360 0 360 0 0 -440z m1540 0 l0 -440 -750 0 -750 0 0 440 0 440 750 0 750 0 0 -440z m820 0 l0 -440 -390 0 -390 0 0 440 0 440 390 0 390 0 0 -440z m770 0 l0 -440 -365 0 -365 0 0 440 0 440 365 0 365 0 0 -440z m750 0 l0 -440 -355 0 -355 0 0 440 0 440 355 0 355 0 0 -440z m790 0 l0 -440 -375 0 -375 0 0 440 0 440 375 0 375 0 0 -440z m770 0 l0 -440 -365 0 -365 0 0 440 0 440 365 0 365 0 0 -440z"/>
-    </g>
-
-    <!-- 2. SALAS CLICÁVEIS (Camada Superior) -->
+    <!-- 1. SALAS CLICÁVEIS (Camada Inferior) -->
     <g id="salas-clicaveis" style="pointer-events: all; cursor: pointer;">
       <!-- Gabinetes Superior -->
-      <rect class="room room--gabinete" data-room="wc" x="580" y="1780" width="740" height="1080"></rect>
+      <rect class="room room--wc" data-room="wc" x="580" y="1780" width="740" height="1080"></rect>
       <rect class="room room--gabinete" data-room="b1_3" x="1320" y="1780" width="760" height="1080"></rect>
       <rect class="room room--gabinete" data-room="b1_4" x="2080" y="1780" width="800" height="1080"></rect>
       <rect class="room room--gabinete" data-room="b1_5" x="2880" y="1780" width="760" height="1080"></rect>
       <rect class="room room--gabinete" data-room="b1_6" x="3640" y="1780" width="760" height="1080"></rect>
       <rect class="room room--gabinete" data-room="b1_7" x="4400" y="1780" width="760" height="1080"></rect>
       <rect class="room room--gabinete" data-room="b1_8" x="5160" y="1780" width="1170" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_9" x="6330" y="1780" width="820" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_10" x="7150" y="1780" width="1560" height="1080"></rect>
-      <rect class="room room--gabinete" data-room="b1_11" x="8710" y="2050" width="1100" height="810"></rect>
-      <rect class="room room--circulacao" data-room="b1_12" x="9810" y="1780" width="1200" height="1830"></rect>
+      <rect class="room room--reuniao" data-room="b1_9" x="6330" y="1780" width="820" height="1080"></rect>
+      <rect class="room room--reuniao" data-room="b1_10" x="7150" y="1780" width="1560" height="1080"></rect>
+      <rect class="room room--wc" data-room="b1_11" x="8710" y="2050" width="1100" height="810"></rect>
+      <rect class="room room--reuniao" data-room="b1_12" x="9810" y="1780" width="1200" height="1830"></rect>
 
-     
-
-      
+      <!-- Gabinetes Inferior -->
       <rect class="room room--gabinete" data-room="b1_26" x="1370" y="360" width="770" height="900"></rect>
       <rect class="room room--gabinete" data-room="b1_25" x="2150" y="360" width="760" height="900"></rect>
       <rect class="room room--gabinete" data-room="b1_24" x="2930" y="360" width="760" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_23" x="3660" y="360" width="1540" height="900"></rect>
-      <rect class="room room--gabinete" data-room="b1_22" x="5210" y="360" width="820" height="900"></rect>
+      <rect class="room room--reuniao" data-room="b1_23" x="3660" y="360" width="1540" height="900"></rect>
+      <rect class="room room--reuniao" data-room="b1_22" x="5210" y="360" width="820" height="900"></rect>
       <rect class="room room--gabinete" data-room="b1_21" x="6030" y="360" width="770" height="900"></rect>
       <rect class="room room--gabinete" data-room="b1_20" x="6800" y="360" width="750" height="900"></rect>
       <rect class="room room--gabinete" data-room="b1_19" x="7550" y="360" width="790" height="900"></rect>
@@ -40,13 +33,18 @@
       <rect class="room room--gabinete" data-room="b1_16" x="10640" y="360" width="770" height="910"></rect>
 
       <!-- Sala 13 -->
-      <rect class="room room--gabinete" data-room="b1_13" x="11030" y="2830" width="1350" height="780"></rect>
-      <rect class="room room--gabinete" data-room="b1_13" x="11030" y="1800" width="379" height="1030"></rect>
+      <rect class="room room--arrumacoes" data-room="b1_13" x="11030" y="2830" width="1350" height="780"></rect>
+      <rect class="room room--arrumacoes" data-room="b1_13" x="11030" y="1800" width="379" height="1030"></rect>
 
-      <!-- Copa -->
-      <rect class="room room--gabinete" data-room="b1_14" x="11440" y="1800" width="1500" height="1050"></rect>
-      <rect class="room room--gabinete" data-room="b1_104" x="11920" y="1280" width="1020" height="520"></rect>
-      <rect class="room room--gabinete" data-room="b1_15" x="11440" y="360" width="1500" height="910"></rect>
+      <!-- Copa & Outros -->
+      <rect class="room room--copa" data-room="b1_14" x="11440" y="1800" width="1500" height="1050"></rect>
+      <rect class="room room--copa" data-room="b1_104" x="11920" y="1280" width="1020" height="520"></rect>
+      <rect class="room room--copa" data-room="b1_15" x="11440" y="360" width="1500" height="910"></rect>
+    </g>
+
+    <!-- 2. LINHAS PRETAS DA PLANTA (Camada Superior - À frente de tudo) -->
+    <g id="desenho-planta" pointer-events="none" fill="#000000">
+      <path d="M9806 3634 c-3 -9 -6 -177 -6 -375 l0 -359 -4619 0 c-4389 0 -4619 -1 -4626 -17 -4 -10 -10 -258 -13 -552 l-5 -534 -88 5 -89 5 0 -317 0 -317 90 5 90 5 0 -329 c0 -408 7 -554 27 -554 8 0 17 9 20 20 5 20 14 20 6185 20 5342 0 6181 2 6194 14 12 13 14 192 14 1245 0 1150 -1 1232 -17 1251 -17 19 -29 20 -285 20 l-268 0 0 376 c0 312 -2 378 -14 390 -13 12 -199 14 -1299 14 -1162 0 -1285 -2 -1291 -16z m1184 -929 l0 -905 -582 0 -581 0 6 428 c4 235 7 642 7 905 l0 477 575 0 575 0 0 -905z m1380 535 l0 -370 -475 0 c-416 0 -475 -2 -475 -15 0 -8 -4 -15 -10 -15 -7 0 -10 -180 -10 -520 l0 -520 -185 0 -185 0 0 905 0 905 670 0 670 0 0 -370z m-11420 -920 l0 -540 -185 0 -185 0 0 338 c0 185 3 428 7 540 l6 202 179 0 178 0 0 -540z m370 0 l0 -540 -165 0 -165 0 0 540 0 540 165 0 165 0 0 -540z m760 0 l0 -540 -357 2 -358 3 -3 538 -2 537 360 0 360 0 0 -540z m804 13 c-3 -291 -7 -534 -10 -540 -3 -10 -87 -13 -379 -13 l-375 0 0 540 0 540 385 0 385 0 -6 -527z m766 -6 l0 -534 -142 -6 c-79 -4 -243 -7 -365 -7 l-223 0 0 233 c0 127 3 370 7 540 l6 307 359 0 358 0 0 -533z m750 -2 l0 -535 -355 0 -355 0 0 535 0 535 355 0 355 0 0 -535z m760 38 c0 -274 3 -515 6 -535 l7 -38 -367 0 -366 0 0 535 0 535 360 0 360 0 0 -497z m1170 -38 l0 -535 -558 0 -559 0 -6 143 c-4 78 -7 319 -7 535 l0 392 565 0 565 0 0 -535z m818 3 l-3 -533 -387 -3 -388 -2 0 535 0 535 390 0 390 0 -2 -532z m1562 4 l0 -529 -542 -6 c-298 -4 -640 -7 -760 -7 l-218 0 0 535 0 535 760 0 760 0 0 -528z m510 123 l0 -405 -235 0 -235 0 0 405 0 405 235 0 235 0 0 -405z m577 158 c-4 -137 -7 -319 -7 -405 l0 -158 -265 0 -265 0 0 405 0 405 272 0 271 0 -6 -247z m3143 -1013 l0 -1220 -750 0 -750 0 0 445 0 445 229 0 c126 0 236 3 245 6 14 5 16 37 16 251 0 198 -3 247 -14 259 -12 11 -59 14 -245 14 l-231 0 0 510 0 510 750 0 750 0 0 -1220z m-3148 273 c3 -122 5 -138 21 -141 10 -2 17 3 17 12 0 14 100 16 1030 16 l1030 0 0 -225 0 -225 -1035 0 c-1028 0 -1035 0 -1035 -20 0 -11 5 -20 10 -20 7 0 10 -155 10 -445 l0 -445 -355 0 -355 0 0 465 0 465 -3890 0 c-3835 0 -3889 0 -3900 -19 -6 -13 -10 -177 -10 -465 l0 -446 -370 0 -370 0 -1 23 c-1 12 -5 215 -8 452 -6 399 -7 430 -23 433 -15 3 -18 -4 -18 -32 l0 -36 -70 0 -70 0 0 270 0 270 79 0 c49 0 81 -4 83 -11 3 -8 1126 -8 4080 -2 3717 9 4077 11 4092 26 13 12 16 38 16 126 l0 111 520 0 519 0 3 -137z m798 -1048 l0 -445 -355 0 -355 0 0 445 0 445 355 0 355 0 0 -445z m810 0 l0 -445 -385 0 -385 0 0 445 0 445 385 0 385 0 0 -445z m-9280 -5 l0 -440 -375 0 -375 0 0 440 0 440 375 0 375 0 0 -440z m770 0 l0 -440 -365 0 -365 0 0 440 0 440 365 0 365 0 0 -440z m760 0 l0 -440 -360 0 -360 0 0 440 0 440 360 0 360 0 0 -440z m1540 0 l0 -440 -750 0 -750 0 0 440 0 440 750 0 750 0 0 -440z m820 0 l0 -440 -390 0 -390 0 0 440 0 440 390 0 390 0 0 -440z m770 0 l0 -440 -365 0 -365 0 0 440 0 440 365 0 365 0 0 -440z m750 0 l0 -440 -355 0 -355 0 0 440 0 440 355 0 355 0 0 -440z m790 0 l0 -440 -375 0 -375 0 0 440 0 440 375 0 375 0 0 -440z m770 0 l0 -440 -365 0 -365 0 0 440 0 440 365 0 365 0 0 -440z"/>
     </g>
 
   </g>

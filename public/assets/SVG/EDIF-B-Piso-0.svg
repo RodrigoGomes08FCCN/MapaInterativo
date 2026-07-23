@@ -2,13 +2,55 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- viewBox="0 0 1075 322" preserveAspectRatio="xMidYMid meet">
+ viewBox="0 0 1075 322" preserveAspectRatio="xMidYMid meet" id="mapa-svg">
 
-<g transform="translate(0.000000,322.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+<g transform="translate(0.000000,322.000000) scale(0.100000,-0.100000)">
 
-  <!-- 1. LINHAS PRETAS DA PLANTA (Fundo - Não Bloqueia Cliques) -->
-  <g id="desenho-planta" pointer-events="none">
-    <path d="M268 2983 c-17 -4 -18 -78 -18 -1379 0 -1179 2 -1377 14 -1390 11
+  <!-- 1. CAMADA DE SALAS (Abaixo) -->
+  <g id="salas-clicaveis" style="pointer-events: all; cursor: pointer;">
+    
+    <!-- WCs -->
+    <rect class="room room--wc" data-room="wc" aria-label="Instalações Sanitárias" x="250" y="1450" width="800" height="500"></rect>
+    <rect class="room room--wc" data-room="wcASIF" aria-label="WC ASIF" x="7900" y="2550" width="700" height="400"></rect>
+
+    <!-- Salas de Trabalho / Gabinetes -->
+    <rect class="room room--reuniao" data-room="b06" aria-label="Gabinete B06" x="295" y="1990" width="720" height="950"></rect>
+    <rect class="room room--trabalho" data-room="b07" aria-label="Gabinete B07" x="1050" y="2250" width="550" height="720"></rect>
+    <rect class="room room--trabalho" data-room="b08" aria-label="Gabinete B08" x="1600" y="2250" width="620" height="720"></rect>
+    <rect class="room room--trabalho" data-room="b02" aria-label="Gabinete B02" x="1050" y="250" width="550" height="670"></rect>
+    <rect class="room room--trabalho" data-room="b03" aria-label="Gabinete B03" x="1630" y="250" width="600" height="670"></rect>
+    <rect class="room room--trabalho" data-room="b04" aria-label="Gabinete B04" x="2280" y="250" width="560" height="670"></rect>
+    <rect class="room room--reuniao" data-room="b05" aria-label="Gabinete B05" x="2850" y="250" width="650" height="670"></rect>
+    <rect class="room room--trabalho" data-room="b018" aria-label="Gabinete B018" x="7900" y="1400" width="700" height="800"></rect>
+    <rect class="room room--reuniao" data-room="b017" aria-label="Gabinete B017" x="7900" y="850" width="700" height="550"></rect>
+
+    <!-- Copa / Refeitório -->
+    <rect class="room room--copa" data-room="copa" aria-label="Copa e Refeitório" x="2250" y="2240" width="2500" height="700"></rect>
+    
+    <!-- Open Space -->
+    <rect class="room room--open-space" data-room="openSpace1" aria-label="Open Space Zona A" x="1050" y="950" width="3730" height="1280"></rect>
+    <rect class="room room--open-space" data-room="openSpace1" aria-label="Open Space Zona A B" x="3530" y="250" width="1250" height="700"></rect>
+    <rect class="room room--open-space" data-room="openSpace2" aria-label="Open Space Zona B A" x="7900" y="230" width="2550" height="620"></rect>
+    <rect class="room room--open-space" data-room="openSpace2" aria-label="Open Space Zona B B" x="8610" y="850" width="1850" height="1550"></rect>
+
+    <!-- Salas de Reunião / Estar -->
+    <rect class="room room--convivio" data-room="sala_estar" aria-label="Sala de Reunião / Estar" x="4780" y="2250" width="640" height="480"></rect>
+
+    <!-- Estúdios & Anexos -->
+    <rect class="room room--estudio" data-room="camarim" aria-label="Camarim" x="5050" y="1350" width="330" height="850"></rect>
+    <rect class="room room--estudio" data-room="estudio1" aria-label="Estúdio 1" x="5400" y="1650" width="520" height="700"></rect>
+    <rect class="room room--estudio" data-room="estudio2" aria-label="Estúdio 2" x="5400" y="1350" width="540" height="280"></rect>
+    <rect class="room room--estudio" data-room="estudio3" aria-label="Estúdio 3" x="5950" y="1650" width="850" height="700"></rect>
+    <rect class="room room--estudio" data-room="estudio4" aria-label="Estúdio Principal" x="5400" y="220" width="1900" height="1100"></rect>
+    <rect class="room room--estudio" data-room="estudio4" aria-label="Estúdio Principal Anexo" x="5950" y="1330" width="1330" height="300"></rect>
+    <rect class="room room--arrumacoes" data-room="b020" aria-label="Anexo Estúdio B020" x="8630" y="2400" width="600" height="550"></rect>
+    <rect class="room room--trabalho" data-room="b021" aria-label="Anexo Estúdio B021" x="9260" y="2400" width="720" height="550"></rect>
+
+  </g>
+
+  <!-- 2. CAMADA DAS LINHAS PRETAS (Sobreposta a Tudo) -->
+  <g id="desenho-planta" style="pointer-events: none;">
+    <path fill="#000000" stroke="none" d="M268 2983 c-17 -4 -18 -78 -18 -1379 0 -1179 2 -1377 14 -1390 11
   -11 49 -14 170 -14 149 0 156 1 156 20 0 19 -7 20 -150 20 l-150 0 0 595 0
   595 360 0 360 0 0 -595 0 -595 -45 0 c-38 0 -45 -3 -45 -20 0 -20 7 -20 3345
   -20 3324 0 3345 0 3345 20 0 18 -8 20 -152 22 l-153 3 -3 638 -2 637 170 0
@@ -50,51 +92,6 @@
   335 275 0 275 0 0 -335z m640 0 l0 -335 -300 0 -300 0 0 335 0 335 300 0 300
   0 0 -335z m600 0 l0 -335 -280 0 -280 0 0 335 0 335 280 0 280 0 0 -335z m648
   3 l-3 -333 -302 -3 -303 -2 0 335 0 335 305 0 305 0 -2 -332z"/>
-  </g>
-
-  <!-- 2. SALAS CLICÁVEIS (Camada Superior) -->
-  <g id="salas-clicaveis" style="pointer-events: all; cursor: pointer;">
-    <rect class="room room--gabinete" data-room="b06" x="295" y="1990" width="720" height="950"></rect>
-    <rect class="room room--gabinete" data-room="b07" x="1050" y="2250" width="550" height="720"></rect>
-    <rect class="room room--gabinete" data-room="b08" x="1600" y="2250" width="620" height="720"></rect>
-    <rect class="room room--apoio" data-room="b02" x="1050" y="250" width="550" height="670"></rect>
-    <rect class="room room--apoio" data-room="b03" x="1630" y="250" width="600" height="670"></rect>
-    <rect class="room room--apoio" data-room="b04" x="2280" y="250" width="560" height="670"></rect>
-    <rect class="room room--apoio" data-room="b05" x="2850" y="250" width="650" height="670"></rect>
-    <rect class="room room--gabinete" data-room="wc" x="250" y="1450" width="800" height="500"></rect>
-
-    <!-- Copa -->
-    <rect class="room room--circulacao" data-room="copa" x="2250" y="2240" width="2500" height="700"></rect>
-    
-    <!-- Open Space -->
-    <rect class="room room--circulacao" data-room="openSpace1" x="1050" y="950" width="3730" height="1280"></rect>
-    <rect class="room room--circulacao" data-room="openSpace1" x="3530" y="250" width="1250" height="700"></rect>
-
-    <!-- Sala de estar -->
-    <rect class="room room--reuniao" data-room="sala_estar" x="4780" y="2250" width="640" height="480"></rect>
-
-    <!-- Estudio -->
-    <rect class="room room--reuniao" data-room="camarim" x="5050" y="1350" width="330" height="850"></rect>
-    <rect class="room room--reuniao" data-room="estudio1" x="5400" y="1650" width="520" height="700"></rect>
-    <rect class="room room--reuniao" data-room="estudio2" x="5400" y="1350" width="540" height="280"></rect>
-    <rect class="room room--reuniao" data-room="estudio3" x="5950" y="1650" width="850" height="700"></rect>
-    <rect class="room room--reuniao" data-room="estudio4" x="5400" y="220" width="1900" height="1100"></rect>
-    <rect class="room room--reuniao" data-room="estudio4" x="5950" y="1330" width="1330" height="300"></rect>
-
-    <!-- Outros -->
-    <rect class="room room--aula" data-room="wcASIF" x="7900" y="2550" width="700" height="400"></rect>
-
-    <!-- Estúdio Anexos -->
-    <rect class="room room--estudio" data-room="b020" x="8630" y="2400" width="600" height="550"></rect>
-    <rect class="room room--estudio" data-room="b021" x="9260" y="2400" width="720" height="550"></rect>
-
-    <!-- Salas -->
-    <rect class="room room--estudio" data-room="b018" x="7900" y="1400" width="700" height="800"></rect>
-    <rect class="room room--estudio" data-room="b017" x="7900" y="850" width="700" height="550"></rect>
-
-    <!-- Open Space -->
-    <rect class="room room--circulacao" data-room="openSpace2" x="7900" y="230" width="2550" height="620"></rect>
-    <rect class="room room--circulacao" data-room="openSpace2" x="8610" y="850" width="1850" height="1550"></rect>
   </g>
 
 </g>
